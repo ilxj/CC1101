@@ -81,7 +81,13 @@ Add by AlexLin    --2017-03-29
 ******************************************************************/
 static uint8 cc1101_WriteCmd( uint8 cmd )
 {
-    return SPI2_SendByte( cmd );
+    uint8 ret=0;
+
+    RF_CS_LOW;
+    while ( RF_MISO_READ );
+    ret = SPI2_SendByte( cmd );
+    RF_CS_HIGH;
+    return ret;
 }
 
 /******************************************************************
@@ -122,11 +128,6 @@ static void cc1101_RegInit( void )
     uint8 i=0,addr=0,status=0;
     uint8 regNum = sizeof(rfSettings)/sizeof(rfSettings[0]);
     cc1101Log( CRITICAL,"%s regNum=%d\n",__FUNCTION__,regNum );
-    // cc1101Log( INFO,"Write addr=%02x value=%02x\n",addr,rfSettings[i] );
-    // cc1101_WriteData( 0,0X29 );
-    // Delay_ms(100);
-    // status = cc1101_ReadData( 0 );
-    // cc1101Log( INFO,"Read addr=%02x value=%02x\n",0,status );
 
     for( i=0;i<regNum;i++ )
     {
@@ -140,8 +141,8 @@ static void cc1101_RegInit( void )
         }
         cc1101Log( INFO,"Write addr=%02x value=%02x\n",addr,rfSettings[i] );
         cc1101_WriteData( addr,rfSettings[i] );
-        // Delay_ms(1);
     }
+    logDump("\n");
     for( i=0;i<regNum;i++ )
     {
         if( i>0X2E )
@@ -178,10 +179,31 @@ static void cc1101_PowerReset( void )
     Delay_ms(1);
     RF_CS_LOW;
     while( RF_MISO_READ );
-    cc1101_WriteCmd( 0X30 );
+    SPI2_SendByte( CCxxx0_SRES );
     while( RF_MISO_READ );
     RF_CS_HIGH;
     cc1101Log( CRITICAL,"%s ... [%s]\n",__FUNCTION__,OK_STR );
+}
+void cc1101_ModeSet( enum CC1101_Mode mode )
+{
+    switch( mode )
+    {
+        case Rx_Mode:
+            cc1101Log( INFO,"%s : Rx_Mode\n",__FUNCTION__ );
+            cc1101_WriteCmd( CCxxx0_SRX );
+            break;
+        case Tx_Mode:
+            cc1101Log( INFO,"%s : Tx_Mode\n",__FUNCTION__ );
+            cc1101_WriteCmd( CCxxx0_STX );
+            break;
+        default:
+            cc1101Log( INFO,"%s : InValid=%d\n",__FUNCTION__,mode );
+            break;
+    }
+}
+uint8 cc1101_Receive( uint8 *pData )
+{
+
 }
 void cc1101_Init()
 {

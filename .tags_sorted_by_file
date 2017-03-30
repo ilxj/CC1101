@@ -9927,12 +9927,8 @@ hal_spiInit	hal\hal_spi.c	/^void hal_spiInit()$/;"	f
 GDO_0	hal\hal_spi.h	6;"	d
 GDO_2	hal\hal_spi.h	7;"	d
 HAL_SPI_H_	hal\hal_spi.h	2;"	d
-NSS_High	hal\hal_spi.h	14;"	d
-READ_IRQ	hal\hal_spi.h	18;"	d
 RF_GPIO	hal\hal_spi.h	5;"	d
 RF_SC_PIN	hal\hal_spi.h	8;"	d
-SDN_High	hal\hal_spi.h	16;"	d
-SDN_Low	hal\hal_spi.h	15;"	d
 SPI2_MISO	hal\hal_spi.h	10;"	d
 SPI2_MOSI	hal\hal_spi.h	11;"	d
 SPI2_SCK	hal\hal_spi.h	9;"	d
@@ -9965,10 +9961,116 @@ USARTx_TX_GPIO_PORT	hal\hal_uart.h	13;"	d
 USARTx_TX_PIN	hal\hal_uart.h	12;"	d
 USARTx_TX_SOURCE	hal\hal_uart.h	15;"	d
 _HAL_UART_H	hal\hal_uart.h	2;"	d
+cc1101	hal_cc1101\cc1101.c	/^static CC1101_T cc1101;$/;"	v	file:
 cc1101_GPIOInit	hal_cc1101\cc1101.c	/^static void cc1101_GPIOInit( void )$/;"	f	file:
 cc1101_Init	hal_cc1101\cc1101.c	/^void cc1101_Init()$/;"	f
+cc1101_ModeSet	hal_cc1101\cc1101.c	/^void cc1101_ModeSet( enum CC1101_Mode mode )$/;"	f
+cc1101_PowerReset	hal_cc1101\cc1101.c	/^static void cc1101_PowerReset( void )$/;"	f	file:
+cc1101_ReadData	hal_cc1101\cc1101.c	/^static uint8 cc1101_ReadData( uint8 addr )$/;"	f	file:
 cc1101_RegInit	hal_cc1101\cc1101.c	/^static void cc1101_RegInit( void )$/;"	f	file:
+cc1101_WriteCmd	hal_cc1101\cc1101.c	/^static uint8 cc1101_WriteCmd( uint8 cmd )$/;"	f	file:
+cc1101_WriteData	hal_cc1101\cc1101.c	/^static uint8 cc1101_WriteData( uint8 addr,uint8 value )$/;"	f	file:
+rfSettings	hal_cc1101\cc1101.c	/^static char rfSettings[] = {$/;"	v	file:
+ADDR	hal_cc1101\cc1101.h	/^    ADDR,$/;"	e	enum:CC1101_Addr
+AGCCTRL0	hal_cc1101\cc1101.h	/^    AGCCTRL0,$/;"	e	enum:CC1101_Addr
+AGCCTRL1	hal_cc1101\cc1101.h	/^    AGCCTRL1,$/;"	e	enum:CC1101_Addr
+AGCCTRL2	hal_cc1101\cc1101.h	/^    AGCCTRL2,$/;"	e	enum:CC1101_Addr
+AGCTEST	hal_cc1101\cc1101.h	/^    AGCTEST,$/;"	e	enum:CC1101_Addr
+BSCFG	hal_cc1101\cc1101.h	/^    BSCFG,$/;"	e	enum:CC1101_Addr
+CC1101_Addr	hal_cc1101\cc1101.h	/^enum CC1101_Addr$/;"	g
+CC1101_CmdAddr	hal_cc1101\cc1101.h	/^enum CC1101_CmdAddr$/;"	g
 CC1101_H_	hal_cc1101\cc1101.h	2;"	d
+CC1101_Mode	hal_cc1101\cc1101.h	/^enum CC1101_Mode$/;"	g
+CC1101_T	hal_cc1101\cc1101.h	/^}CC1101_T;$/;"	t	typeref:struct:_cc1101
+CCxxx0_SAFC	hal_cc1101\cc1101.h	/^    CCxxx0_SAFC      =   0x37,        \/\/ Perform AFC adjustment of the frequency synthesizer$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SCAL	hal_cc1101\cc1101.h	/^    CCxxx0_SCAL      =   0x33,        \/\/ Calibrate frequency synthesizer and turn it off$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFRX	hal_cc1101\cc1101.h	/^    CCxxx0_SFRX      =   0x3A,        \/\/ Flush the RX FIFO buffer.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFSTXON	hal_cc1101\cc1101.h	/^    CCxxx0_SFSTXON   =   0x31,        \/\/ Enable and calibrate frequency synthesizer (if MCSM0.FS_AUTOCAL=1).$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFTX	hal_cc1101\cc1101.h	/^    CCxxx0_SFTX      =   0x3B,        \/\/ Flush the TX FIFO buffer.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SIDLE	hal_cc1101\cc1101.h	/^    CCxxx0_SIDLE     =   0x36,        \/\/ Exit RX \/ TX, turn off frequency synthesizer and exit$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SNOP	hal_cc1101\cc1101.h	/^    CCxxx0_SNOP      =   0x3D        \/\/ No operation. May be used to pad strobe commands to two$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SPWD	hal_cc1101\cc1101.h	/^    CCxxx0_SPWD      =   0x39,        \/\/ Enter power down mode when CSn goes high.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SRES	hal_cc1101\cc1101.h	/^    CCxxx0_SRES      =   0x30,        \/\/ Reset chip.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SRX	hal_cc1101\cc1101.h	/^    CCxxx0_SRX       =   0x34,        \/\/ Enable RX. Perform calibration first if coming from IDLE and$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_STX	hal_cc1101\cc1101.h	/^    CCxxx0_STX       =   0x35,        \/\/ In IDLE state: Enable TX. Perform calibration first if$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SWOR	hal_cc1101\cc1101.h	/^    CCxxx0_SWOR      =   0x38,        \/\/ Start automatic RX polling sequence (Wake-on-Radio)$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SWORRST	hal_cc1101\cc1101.h	/^    CCxxx0_SWORRST   =   0x3C,        \/\/ Reset real time clock.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SXOFF	hal_cc1101\cc1101.h	/^    CCxxx0_SXOFF     =   0x32,        \/\/ Turn off crystal oscillator.$/;"	e	enum:CC1101_CmdAddr
+CHANNR	hal_cc1101\cc1101.h	/^    CHANNR,$/;"	e	enum:CC1101_Addr
+DEVIATN	hal_cc1101\cc1101.h	/^    DEVIATN,$/;"	e	enum:CC1101_Addr
+FIFOTHR	hal_cc1101\cc1101.h	/^    FIFOTHR,$/;"	e	enum:CC1101_Addr
+FOCCFG	hal_cc1101\cc1101.h	/^    FOCCFG,$/;"	e	enum:CC1101_Addr
+FREND0	hal_cc1101\cc1101.h	/^    FREND0,$/;"	e	enum:CC1101_Addr
+FREND1	hal_cc1101\cc1101.h	/^    FREND1,$/;"	e	enum:CC1101_Addr
+FREQ0	hal_cc1101\cc1101.h	/^    FREQ0,$/;"	e	enum:CC1101_Addr
+FREQ1	hal_cc1101\cc1101.h	/^    FREQ1,$/;"	e	enum:CC1101_Addr
+FREQ2	hal_cc1101\cc1101.h	/^    FREQ2,$/;"	e	enum:CC1101_Addr
+FREQEST	hal_cc1101\cc1101.h	/^    FREQEST,$/;"	e	enum:CC1101_Addr
+FSCAL0	hal_cc1101\cc1101.h	/^    FSCAL0,$/;"	e	enum:CC1101_Addr
+FSCAL1	hal_cc1101\cc1101.h	/^    FSCAL1,$/;"	e	enum:CC1101_Addr
+FSCAL2	hal_cc1101\cc1101.h	/^    FSCAL2,$/;"	e	enum:CC1101_Addr
+FSCAL3	hal_cc1101\cc1101.h	/^    FSCAL3,$/;"	e	enum:CC1101_Addr
+FSCTRL0	hal_cc1101\cc1101.h	/^    FSCTRL0,$/;"	e	enum:CC1101_Addr
+FSCTRL1	hal_cc1101\cc1101.h	/^    FSCTRL1,$/;"	e	enum:CC1101_Addr
+FSTEST	hal_cc1101\cc1101.h	/^    FSTEST,$/;"	e	enum:CC1101_Addr
+GDO_0_HIGH	hal_cc1101\cc1101.h	20;"	d
+GDO_0_LOW	hal_cc1101\cc1101.h	21;"	d
+GDO_0_READ	hal_cc1101\cc1101.h	22;"	d
+GDO_2_HIGH	hal_cc1101\cc1101.h	24;"	d
+GDO_2_LOW	hal_cc1101\cc1101.h	25;"	d
+GDO_2_READ	hal_cc1101\cc1101.h	26;"	d
+IOCFG0	hal_cc1101\cc1101.h	/^    IOCFG0,$/;"	e	enum:CC1101_Addr
+IOCFG1	hal_cc1101\cc1101.h	/^    IOCFG1,$/;"	e	enum:CC1101_Addr
+IOCFG2	hal_cc1101\cc1101.h	/^    IOCFG2 = 0x0000,$/;"	e	enum:CC1101_Addr
+LQI	hal_cc1101\cc1101.h	/^    LQI,$/;"	e	enum:CC1101_Addr
+MARCSTATE	hal_cc1101\cc1101.h	/^    MARCSTATE,$/;"	e	enum:CC1101_Addr
+MCSM0	hal_cc1101\cc1101.h	/^    MCSM0,$/;"	e	enum:CC1101_Addr
+MCSM1	hal_cc1101\cc1101.h	/^    MCSM1,$/;"	e	enum:CC1101_Addr
+MCSM2	hal_cc1101\cc1101.h	/^    MCSM2,$/;"	e	enum:CC1101_Addr
+MDMCFG0	hal_cc1101\cc1101.h	/^    MDMCFG0,$/;"	e	enum:CC1101_Addr
+MDMCFG1	hal_cc1101\cc1101.h	/^    MDMCFG1,$/;"	e	enum:CC1101_Addr
+MDMCFG2	hal_cc1101\cc1101.h	/^    MDMCFG2,$/;"	e	enum:CC1101_Addr
+MDMCFG3	hal_cc1101\cc1101.h	/^    MDMCFG3,$/;"	e	enum:CC1101_Addr
+MDMCFG4	hal_cc1101\cc1101.h	/^    MDMCFG4,$/;"	e	enum:CC1101_Addr
+PARTNUM	hal_cc1101\cc1101.h	/^    PARTNUM = 0x0030,$/;"	e	enum:CC1101_Addr
+PKTCTRL0	hal_cc1101\cc1101.h	/^    PKTCTRL0,$/;"	e	enum:CC1101_Addr
+PKTCTRL1	hal_cc1101\cc1101.h	/^    PKTCTRL1,$/;"	e	enum:CC1101_Addr
+PKTLEN	hal_cc1101\cc1101.h	/^    PKTLEN,$/;"	e	enum:CC1101_Addr
+PKTSTATUS	hal_cc1101\cc1101.h	/^    PKTSTATUS,$/;"	e	enum:CC1101_Addr
+PTEST	hal_cc1101\cc1101.h	/^    PTEST,$/;"	e	enum:CC1101_Addr
+RCCTRL0	hal_cc1101\cc1101.h	/^    RCCTRL0,$/;"	e	enum:CC1101_Addr
+RCCTRL0_STATUS	hal_cc1101\cc1101.h	/^    RCCTRL0_STATUS,$/;"	e	enum:CC1101_Addr
+RCCTRL1	hal_cc1101\cc1101.h	/^    RCCTRL1,$/;"	e	enum:CC1101_Addr
+RCCTRL1_STATUS	hal_cc1101\cc1101.h	/^    RCCTRL1_STATUS,$/;"	e	enum:CC1101_Addr
+RF_CS_HIGH	hal_cc1101\cc1101.h	6;"	d
+RF_CS_LOW	hal_cc1101\cc1101.h	7;"	d
+RF_MISO_HIGH	hal_cc1101\cc1101.h	12;"	d
+RF_MISO_LOW	hal_cc1101\cc1101.h	13;"	d
+RF_MISO_READ	hal_cc1101\cc1101.h	14;"	d
+RF_MOSI_HIGH	hal_cc1101\cc1101.h	16;"	d
+RF_MOSI_LOW	hal_cc1101\cc1101.h	17;"	d
+RF_MOSI_READ	hal_cc1101\cc1101.h	18;"	d
+RF_SCK_HIGH	hal_cc1101\cc1101.h	9;"	d
+RF_SCK_LOW	hal_cc1101\cc1101.h	10;"	d
+RSSI	hal_cc1101\cc1101.h	/^    RSSI,$/;"	e	enum:CC1101_Addr
+RXBYTES	hal_cc1101\cc1101.h	/^    RXBYTES,$/;"	e	enum:CC1101_Addr
+Rx_Mode	hal_cc1101\cc1101.h	/^    Rx_Mode=0,$/;"	e	enum:CC1101_Mode
+SYNC0	hal_cc1101\cc1101.h	/^    SYNC0,$/;"	e	enum:CC1101_Addr
+SYNC1	hal_cc1101\cc1101.h	/^    SYNC1,$/;"	e	enum:CC1101_Addr
+TEST0	hal_cc1101\cc1101.h	/^    TEST0 = 0x002E,$/;"	e	enum:CC1101_Addr
+TEST1	hal_cc1101\cc1101.h	/^    TEST1,$/;"	e	enum:CC1101_Addr
+TEST2	hal_cc1101\cc1101.h	/^    TEST2,$/;"	e	enum:CC1101_Addr
+TXBYTES	hal_cc1101\cc1101.h	/^    TXBYTES,$/;"	e	enum:CC1101_Addr
+Tx_Mode	hal_cc1101\cc1101.h	/^    Tx_Mode$/;"	e	enum:CC1101_Mode
+VCO_VC_DAC	hal_cc1101\cc1101.h	/^    VCO_VC_DAC,$/;"	e	enum:CC1101_Addr
+VERSION	hal_cc1101\cc1101.h	/^    VERSION,$/;"	e	enum:CC1101_Addr
+WORCTRL	hal_cc1101\cc1101.h	/^    WORCTRL,$/;"	e	enum:CC1101_Addr
+WOREVT0	hal_cc1101\cc1101.h	/^    WOREVT0,$/;"	e	enum:CC1101_Addr
+WOREVT1	hal_cc1101\cc1101.h	/^    WOREVT1,$/;"	e	enum:CC1101_Addr
+WORTIME0	hal_cc1101\cc1101.h	/^    WORTIME0,$/;"	e	enum:CC1101_Addr
+WORTIME1	hal_cc1101\cc1101.h	/^    WORTIME1,$/;"	e	enum:CC1101_Addr
+_cc1101	hal_cc1101\cc1101.h	/^typedef struct _cc1101$/;"	s
+data	hal_cc1101\cc1101.h	/^  int32 data;$/;"	m	struct:_cc1101
 COMM_H_	include\comm.h	2;"	d
 MAGIC_NUM	include\comm.h	11;"	d
 SycTi	include\comm.h	13;"	d
@@ -9988,17 +10090,21 @@ __STM32F0XX_CONF_H	include\stm32f0xx_conf.h	30;"	d
 assert_param	include\stm32f0xx_conf.h	72;"	d
 assert_param	include\stm32f0xx_conf.h	76;"	d
 __STM32F0XX_IT_H	include\stm32f0xx_it.h	30;"	d
-LOCKCLIENTNUM_MAX	include\typedef.h	13;"	d
-LOCKCLIENTSTATUS_MAX	include\typedef.h	14;"	d
+LOCKCLIENTNUM_MAX	include\typedef.h	21;"	d
+LOCKCLIENTSTATUS_MAX	include\typedef.h	22;"	d
 LockClient	include\typedef.h	/^    lockClient_t    LockClient[LOCKCLIENTNUM_MAX];$/;"	m	struct:_SMARTLOCK_T
 LockData	include\typedef.h	/^    lockData_t LockData[LOCKCLIENTSTATUS_MAX];$/;"	m	struct:_lockClient
 LockNum	include\typedef.h	/^    uint8_t LockNum;$/;"	m	struct:_configData
 Lock_Alert	include\typedef.h	/^    uint8_t Lock_Alert;$/;"	m	struct:_lockData
 Lock_Id	include\typedef.h	/^    uint8_t *Lock_Id;$/;"	m	struct:_lockClient
 Lock_Id	include\typedef.h	/^    uint8_t Lock_Id[LOCKCLIENTNUM_MAX][12];\/* +1 for printf *\/$/;"	m	struct:_configData
-Lock_Power	include\typedef.h	/^    uint8_t Lock_Power;  $/;"	m	struct:_lockData
+Lock_Power	include\typedef.h	/^    uint8_t Lock_Power;$/;"	m	struct:_lockData
 Lock_Status	include\typedef.h	/^    uint8_t Lock_Status;$/;"	m	struct:_lockData
-NULL	include\typedef.h	10;"	d
+NO_STR	include\typedef.h	19;"	d
+NULL	include\typedef.h	12;"	d
+OK_STR	include\typedef.h	18;"	d
+RET_FAILED	include\typedef.h	16;"	d
+RET_SUCCESS	include\typedef.h	15;"	d
 TYPEDEF_H_	include\typedef.h	2;"	d
 Volume	include\typedef.h	/^    uint8_t Volume;$/;"	m	struct:_configData
 _SMARTLOCK_T	include\typedef.h	/^__packed typedef struct _SMARTLOCK_T$/;"	s
@@ -10008,17 +10114,20 @@ _lockData	include\typedef.h	/^__packed typedef struct _lockData$/;"	s
 configdata_t	include\typedef.h	/^} configdata_t;$/;"	t	typeref:struct:_configData
 eventCb	include\typedef.h	/^typedef uint8_t (*eventCb)( void *arg );$/;"	t
 flag	include\typedef.h	/^    uint8_t flag;  \/* flag=1代表数据还未处理过 *\/$/;"	m	struct:_lockData
+int32	include\typedef.h	/^typedef int                int32;$/;"	t
+int8	include\typedef.h	/^typedef char               int8;$/;"	t
 lockClient_t	include\typedef.h	/^}lockClient_t;$/;"	t	typeref:struct:_lockClient
 lockData_t	include\typedef.h	/^} lockData_t;$/;"	t	typeref:struct:_lockData
 magicnum	include\typedef.h	/^    uint32_t magicnum;$/;"	m	struct:_configData
-pConfigData	include\typedef.h	/^    configdata_t    pConfigData; $/;"	m	struct:_SMARTLOCK_T
+pConfigData	include\typedef.h	/^    configdata_t    pConfigData;$/;"	m	struct:_SMARTLOCK_T
 smartlock_t	include\typedef.h	/^} smartlock_t;$/;"	t	typeref:struct:_SMARTLOCK_T
 sn	include\typedef.h	/^    uint8_t sn;$/;"	m	struct:_lockData
 status	include\typedef.h	/^    uint16_t        status;$/;"	m	struct:_SMARTLOCK_T
 timeStamp	include\typedef.h	/^    uint32_t timeStamp; \/* 时间戳 *\/$/;"	m	struct:_lockData
 u16	include\typedef.h	/^typedef uint16_t           u16;$/;"	t
-u32	include\typedef.h	/^typedef uint32_t           u32;$/;"	t
 u8	include\typedef.h	/^typedef uint8_t            u8;$/;"	t
+uint32	include\typedef.h	/^typedef unsigned int       uint32;$/;"	t
+uint8	include\typedef.h	/^typedef unsigned char      uint8;$/;"	t
 uint8_t	include\typedef.h	/^typedef unsigned char      uint8_t;$/;"	t
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/

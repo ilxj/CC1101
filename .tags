@@ -268,11 +268,16 @@ ADC_VrefintCmd	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Dr
 ADC_WaitModeCmd	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.c	/^void ADC_WaitModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
 ADCmvoltp	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\ADC\Battery_Charge_Monitoring\main.c	/^__IO uint32_t ADCmvoltp = 0 ;$/;"	v
 ADCmvoltp	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\TIM_ADC_Trigger\main.c	/^__IO uint32_t ADCmvoltp = 0 ;$/;"	v
+ADDR	.\hal_cc1101\cc1101.h	/^    ADDR,$/;"	e	enum:CC1101_Addr
 ADR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon100
 ADR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon116
 AFR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t AFR[2];       \/*!< GPIO alternate function low register,                Address offset: 0x20-0x24 *\/$/;"	m	struct:__anon16
 AFSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t AFSR;                    \/*!< Offset: 0x03C (R\/W)  Auxiliary Fault Status Register                       *\/$/;"	m	struct:__anon100
 AFSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t AFSR;                    \/*!< Offset: 0x03C (R\/W)  Auxiliary Fault Status Register                       *\/$/;"	m	struct:__anon116
+AGCCTRL0	.\hal_cc1101\cc1101.h	/^    AGCCTRL0,$/;"	e	enum:CC1101_Addr
+AGCCTRL1	.\hal_cc1101\cc1101.h	/^    AGCCTRL1,$/;"	e	enum:CC1101_Addr
+AGCCTRL2	.\hal_cc1101\cc1101.h	/^    AGCCTRL2,$/;"	e	enum:CC1101_Addr
+AGCTEST	.\hal_cc1101\cc1101.h	/^    AGCTEST,$/;"	e	enum:CC1101_Addr
 AHB2PERIPH_BASE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	667;"	d
 AHBENR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t AHBENR;     \/*!< RCC AHB peripheral clock register,                           Address offset: 0x14 *\/$/;"	m	struct:__anon21
 AHBPERIPH_BASE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	666;"	d
@@ -402,6 +407,7 @@ BKP_VALUE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\
 BROADCAST_ADDRESS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_cec.c	106;"	d	file:
 BRR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t BRR;          \/*!< GPIO bit reset register,                                  Address offset: 0x28 *\/$/;"	m	struct:__anon16
 BRR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t BRR;    \/*!< USART Baud rate register,                 Address offset: 0x0C *\/$/;"	m	struct:__anon26
+BSCFG	.\hal_cc1101\cc1101.h	/^    BSCFG,$/;"	e	enum:CC1101_Addr
 BSRR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t BSRR;         \/*!< GPIO port bit set\/reset registerBSRR,                     Address offset: 0x18 *\/$/;"	m	struct:__anon16
 BSRR_VAL	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\GPIO\IOToggle\main.c	41;"	d	file:
 BUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\SPI\SPI_MSD\main.h	41;"	d
@@ -481,7 +487,11 @@ CALIB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^  __
 CALIB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __I  uint32_t CALIB;                   \/*!< Offset: 0x00C (R\/ )  SysTick Calibration Register        *\/$/;"	m	struct:__anon102
 CALIB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __I  uint32_t CALIB;                   \/*!< Offset: 0x00C (R\/ )  SysTick Calibration Register        *\/$/;"	m	struct:__anon118
 CALIBRATION_TIMEOUT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.c	94;"	d	file:
+CC1101_Addr	.\hal_cc1101\cc1101.h	/^enum CC1101_Addr$/;"	g
+CC1101_CmdAddr	.\hal_cc1101\cc1101.h	/^enum CC1101_CmdAddr$/;"	g
 CC1101_H_	.\hal_cc1101\cc1101.h	2;"	d
+CC1101_Mode	.\hal_cc1101\cc1101.h	/^enum CC1101_Mode$/;"	g
+CC1101_T	.\hal_cc1101\cc1101.h	/^}CC1101_T;$/;"	t	typeref:struct:_cc1101
 CCER	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t CCER;            \/*!< TIM capture\/compare enable register,         Address offset: 0x20 *\/$/;"	m	struct:__anon24
 CCER_CCE_SET	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c	135;"	d	file:
 CCER_CCNE_SET	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c	136;"	d	file:
@@ -510,6 +520,20 @@ CCR4_Val	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\T
 CCR4_Val	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\OC_Toggle\main.c	/^__IO uint16_t CCR4_Val = 5120;$/;"	v
 CCR4_Val	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\Time_base\main.c	/^__IO uint16_t CCR4_Val = 6826;$/;"	v
 CCR_CLEAR_MASK	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_dma.c	84;"	d	file:
+CCxxx0_SAFC	.\hal_cc1101\cc1101.h	/^    CCxxx0_SAFC      =   0x37,        \/\/ Perform AFC adjustment of the frequency synthesizer$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SCAL	.\hal_cc1101\cc1101.h	/^    CCxxx0_SCAL      =   0x33,        \/\/ Calibrate frequency synthesizer and turn it off$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFRX	.\hal_cc1101\cc1101.h	/^    CCxxx0_SFRX      =   0x3A,        \/\/ Flush the RX FIFO buffer.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFSTXON	.\hal_cc1101\cc1101.h	/^    CCxxx0_SFSTXON   =   0x31,        \/\/ Enable and calibrate frequency synthesizer (if MCSM0.FS_AUTOCAL=1).$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SFTX	.\hal_cc1101\cc1101.h	/^    CCxxx0_SFTX      =   0x3B,        \/\/ Flush the TX FIFO buffer.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SIDLE	.\hal_cc1101\cc1101.h	/^    CCxxx0_SIDLE     =   0x36,        \/\/ Exit RX \/ TX, turn off frequency synthesizer and exit$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SNOP	.\hal_cc1101\cc1101.h	/^    CCxxx0_SNOP      =   0x3D        \/\/ No operation. May be used to pad strobe commands to two$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SPWD	.\hal_cc1101\cc1101.h	/^    CCxxx0_SPWD      =   0x39,        \/\/ Enter power down mode when CSn goes high.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SRES	.\hal_cc1101\cc1101.h	/^    CCxxx0_SRES      =   0x30,        \/\/ Reset chip.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SRX	.\hal_cc1101\cc1101.h	/^    CCxxx0_SRX       =   0x34,        \/\/ Enable RX. Perform calibration first if coming from IDLE and$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_STX	.\hal_cc1101\cc1101.h	/^    CCxxx0_STX       =   0x35,        \/\/ In IDLE state: Enable TX. Perform calibration first if$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SWOR	.\hal_cc1101\cc1101.h	/^    CCxxx0_SWOR      =   0x38,        \/\/ Start automatic RX polling sequence (Wake-on-Radio)$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SWORRST	.\hal_cc1101\cc1101.h	/^    CCxxx0_SWORRST   =   0x3C,        \/\/ Reset real time clock.$/;"	e	enum:CC1101_CmdAddr
+CCxxx0_SXOFF	.\hal_cc1101\cc1101.h	/^    CCxxx0_SXOFF     =   0x32,        \/\/ Turn off crystal oscillator.$/;"	e	enum:CC1101_CmdAddr
 CEC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	736;"	d
 CECCLK_Frequency	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h	/^  uint32_t CECCLK_Frequency;$/;"	m	struct:__anon149
 CECDevicesNumber	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.c	/^__IO uint8_t CECDevicesNumber = 0;$/;"	v
@@ -654,6 +678,7 @@ CFR_WDGTB_MASK	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Dr
 CFR_W_MASK	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_wwdg.c	103;"	d	file:
 CFSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon100
 CFSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon116
+CHANNR	.\hal_cc1101\cc1101.h	/^    CHANNR,$/;"	e	enum:CC1101_Addr
 CHSELR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t CHSELR;       \/*!< ADC channel selection register,                             Address offset:0x28 *\/$/;"	m	struct:__anon4
 CID_CRC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^  __IO uint8_t  CID_CRC;              \/*!< CID CRC *\/$/;"	m	struct:__anon192
 CIR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t CIR;        \/*!< RCC clock interrupt register,                                Address offset: 0x08 *\/$/;"	m	struct:__anon21
@@ -1451,6 +1476,7 @@ DELTA_Q15	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	28
 DELTA_Q31	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	280;"	d
 DEMCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t DEMCR;                   \/*!< Offset: 0x00C (R\/W)  Debug Exception and Monitor Control Register *\/$/;"	m	struct:__anon106
 DEMCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t DEMCR;                   \/*!< Offset: 0x00C (R\/W)  Debug Exception and Monitor Control Register *\/$/;"	m	struct:__anon123
+DEVIATN	.\hal_cc1101\cc1101.h	/^    DEVIATN,$/;"	e	enum:CC1101_Addr
 DEVICE_1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\CEC\Data_Exchange\main.h	40;"	d
 DEVICE_2	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\CEC\Multi_Address\main.h	42;"	d
 DEVICE_3	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\CEC\Listen_Mode\main.h	44;"	d
@@ -2016,6 +2042,7 @@ FAILED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\SPI
 FAILED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\SPI\SPI_TwoBoards\DataExchangeInterrupt\main.h	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon173
 FAILED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeDMA\main.h	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon174
 FAILED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeInterrupt\main.h	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon175
+FIFOTHR	.\hal_cc1101\cc1101.h	/^    FIFOTHR,$/;"	e	enum:CC1101_Addr
 FLAG_MASK	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rcc.c	74;"	d	file:
 FLASH	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	757;"	d
 FLASHStatus	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\FLASH\Program\main.c	/^__IO FLASH_Status FLASHStatus = FLASH_COMPLETE;$/;"	v
@@ -2119,6 +2146,7 @@ FLASH_USER_START_ADDR	.\hal\flash_api.h	6;"	d
 FLASH_Unlock	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_flash.c	/^void FLASH_Unlock(void)$/;"	f
 FLASH_WRPR_WRP	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	1396;"	d
 FLASH_WaitForLastOperation	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_flash.c	/^FLASH_Status FLASH_WaitForLastOperation(uint32_t Timeout)$/;"	f
+FOCCFG	.\hal_cc1101\cc1101.h	/^    FOCCFG,$/;"	e	enum:CC1101_Addr
 FPCA	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^    uint32_t FPCA:1;                     \/*!< bit:      2  FP extension active flag           *\/$/;"	m	struct:__anon86::__anon87
 FPCA	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^    uint32_t FPCA:1;                     \/*!< bit:      2  FP extension active flag           *\/$/;"	m	struct:__anon97::__anon98
 FPCA	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    uint32_t FPCA:1;                     \/*!< bit:      2  FP extension active flag           *\/$/;"	m	struct:__anon113::__anon114
@@ -2180,6 +2208,19 @@ FPU_MVFR1_FP_fused_MAC_Pos	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Incl
 FPU_MVFR1_FtZ_mode_Msk	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	866;"	d
 FPU_MVFR1_FtZ_mode_Pos	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	865;"	d
 FPU_Type	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^} FPU_Type;$/;"	t	typeref:struct:__anon122
+FREND0	.\hal_cc1101\cc1101.h	/^    FREND0,$/;"	e	enum:CC1101_Addr
+FREND1	.\hal_cc1101\cc1101.h	/^    FREND1,$/;"	e	enum:CC1101_Addr
+FREQ0	.\hal_cc1101\cc1101.h	/^    FREQ0,$/;"	e	enum:CC1101_Addr
+FREQ1	.\hal_cc1101\cc1101.h	/^    FREQ1,$/;"	e	enum:CC1101_Addr
+FREQ2	.\hal_cc1101\cc1101.h	/^    FREQ2,$/;"	e	enum:CC1101_Addr
+FREQEST	.\hal_cc1101\cc1101.h	/^    FREQEST,$/;"	e	enum:CC1101_Addr
+FSCAL0	.\hal_cc1101\cc1101.h	/^    FSCAL0,$/;"	e	enum:CC1101_Addr
+FSCAL1	.\hal_cc1101\cc1101.h	/^    FSCAL1,$/;"	e	enum:CC1101_Addr
+FSCAL2	.\hal_cc1101\cc1101.h	/^    FSCAL2,$/;"	e	enum:CC1101_Addr
+FSCAL3	.\hal_cc1101\cc1101.h	/^    FSCAL3,$/;"	e	enum:CC1101_Addr
+FSCTRL0	.\hal_cc1101\cc1101.h	/^    FSCTRL0,$/;"	e	enum:CC1101_Addr
+FSCTRL1	.\hal_cc1101\cc1101.h	/^    FSCTRL1,$/;"	e	enum:CC1101_Addr
+FSTEST	.\hal_cc1101\cc1101.h	/^    FSTEST,$/;"	e	enum:CC1101_Addr
 FTSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t FTSR;         \/*!<EXTI Falling trigger selection register,                  Address offset: 0x0C *\/$/;"	m	struct:__anon13
 FeatureOpcode	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.c	/^__IO uint8_t FeatureOpcode = 0;$/;"	v
 FileFormat	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^  __IO uint8_t  FileFormat;           \/*!< File Format *\/$/;"	m	struct:__anon191
@@ -2199,7 +2240,13 @@ Font8x8	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\Common\fonts.c	/^s
 Frequency	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\PWM_Input\stm32f0xx_it.c	/^__IO uint32_t Frequency = 0;$/;"	v
 FunctionalState	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;$/;"	t	typeref:enum:__anon2
 GDO_0	.\hal\hal_spi.h	6;"	d
+GDO_0_HIGH	.\hal_cc1101\cc1101.h	20;"	d
+GDO_0_LOW	.\hal_cc1101\cc1101.h	21;"	d
+GDO_0_READ	.\hal_cc1101\cc1101.h	22;"	d
 GDO_2	.\hal\hal_spi.h	7;"	d
+GDO_2_HIGH	.\hal_cc1101\cc1101.h	24;"	d
+GDO_2_LOW	.\hal_cc1101\cc1101.h	25;"	d
+GDO_2_READ	.\hal_cc1101\cc1101.h	26;"	d
 GE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon84::__anon85
 GE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon95::__anon96
 GE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon111::__anon112
@@ -3164,6 +3211,9 @@ INITMODE_TIMEOUT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_
 INPUT_SPACING	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	298;"	d
 IOASCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t IOASCR;    \/*!< TSC I\/O analog switch control register,                   Address offset: 0x18 *\/$/;"	m	struct:__anon25
 IOCCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t IOCCR;     \/*!< TSC I\/O channel control register,                         Address offset: 0x28 *\/$/;"	m	struct:__anon25
+IOCFG0	.\hal_cc1101\cc1101.h	/^    IOCFG0,$/;"	e	enum:CC1101_Addr
+IOCFG1	.\hal_cc1101\cc1101.h	/^    IOCFG1,$/;"	e	enum:CC1101_Addr
+IOCFG2	.\hal_cc1101\cc1101.h	/^    IOCFG2 = 0x0000,$/;"	e	enum:CC1101_Addr
 IOGCSR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t IOGCSR;    \/*!< TSC I\/O group control status register,                    Address offset: 0x30 *\/$/;"	m	struct:__anon25
 IOGXCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t IOGXCR[6]; \/*!< TSC I\/O group x counter register,                         Address offset: 0x34-48 *\/$/;"	m	struct:__anon25
 IOHCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t IOHCR;     \/*!< TSC I\/O hysteresis control register,                      Address offset: 0x10 *\/$/;"	m	struct:__anon25
@@ -4049,9 +4099,10 @@ LM75_WriteReg	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EV
 LOAD	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^  __IO uint32_t LOAD;                    \/*!< Offset: 0x004 (R\/W)  SysTick Reload Value Register       *\/$/;"	m	struct:__anon90
 LOAD	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t LOAD;                    \/*!< Offset: 0x004 (R\/W)  SysTick Reload Value Register       *\/$/;"	m	struct:__anon102
 LOAD	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t LOAD;                    \/*!< Offset: 0x004 (R\/W)  SysTick Reload Value Register       *\/$/;"	m	struct:__anon118
-LOCKCLIENTNUM_MAX	.\include\typedef.h	13;"	d
-LOCKCLIENTSTATUS_MAX	.\include\typedef.h	14;"	d
+LOCKCLIENTNUM_MAX	.\include\typedef.h	21;"	d
+LOCKCLIENTSTATUS_MAX	.\include\typedef.h	22;"	d
 LOG_LEVEL	.\include\log.h	12;"	d
+LQI	.\hal_cc1101\cc1101.h	/^    LQI,$/;"	e	enum:CC1101_Addr
 LSE_VALUE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	138;"	d
 LSI_TIM_MEASURE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\IWDG\IWDG_Reset\main.h	40;"	d
 LSI_VALUE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	132;"	d
@@ -4072,7 +4123,7 @@ LockNum	.\include\typedef.h	/^    uint8_t LockNum;$/;"	m	struct:_configData
 Lock_Alert	.\include\typedef.h	/^    uint8_t Lock_Alert;$/;"	m	struct:_lockData
 Lock_Id	.\include\typedef.h	/^    uint8_t *Lock_Id;$/;"	m	struct:_lockClient
 Lock_Id	.\include\typedef.h	/^    uint8_t Lock_Id[LOCKCLIENTNUM_MAX][12];\/* +1 for printf *\/$/;"	m	struct:_configData
-Lock_Power	.\include\typedef.h	/^    uint8_t Lock_Power;  $/;"	m	struct:_lockData
+Lock_Power	.\include\typedef.h	/^    uint8_t Lock_Power;$/;"	m	struct:_lockData
 Lock_Status	.\include\typedef.h	/^    uint8_t Lock_Status;$/;"	m	struct:_lockData
 LogicalAddress	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.h	/^  uint8_t LogicalAddress;$/;"	m	struct:__anon182
 LogicalAddressAllocation	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.c	/^static HDMI_CEC_Error LogicalAddressAllocation(void)$/;"	f	file:
@@ -4088,10 +4139,19 @@ M	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    uint
 M	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    uint8_t M;                      \/**< decimation factor. *\/$/;"	m	struct:__anon56
 M	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    uint8_t M;                  \/**< decimation factor. *\/$/;"	m	struct:__anon57
 MAGIC_NUM	.\include\comm.h	11;"	d
+MARCSTATE	.\hal_cc1101\cc1101.h	/^    MARCSTATE,$/;"	e	enum:CC1101_Addr
 MASTERSTRUCTURE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_WakeUpFromStop\main.h	53;"	d
 MASTER_I2C_TIMING	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_WakeUpFromStop\main.h	49;"	d
 MAX_BUFF_SIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_TwoBoards\main.h	54;"	d
 MAX_POLY_CORNERS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.c	75;"	d	file:
+MCSM0	.\hal_cc1101\cc1101.h	/^    MCSM0,$/;"	e	enum:CC1101_Addr
+MCSM1	.\hal_cc1101\cc1101.h	/^    MCSM1,$/;"	e	enum:CC1101_Addr
+MCSM2	.\hal_cc1101\cc1101.h	/^    MCSM2,$/;"	e	enum:CC1101_Addr
+MDMCFG0	.\hal_cc1101\cc1101.h	/^    MDMCFG0,$/;"	e	enum:CC1101_Addr
+MDMCFG1	.\hal_cc1101\cc1101.h	/^    MDMCFG1,$/;"	e	enum:CC1101_Addr
+MDMCFG2	.\hal_cc1101\cc1101.h	/^    MDMCFG2,$/;"	e	enum:CC1101_Addr
+MDMCFG3	.\hal_cc1101\cc1101.h	/^    MDMCFG3,$/;"	e	enum:CC1101_Addr
+MDMCFG4	.\hal_cc1101\cc1101.h	/^    MDMCFG4,$/;"	e	enum:CC1101_Addr
 MEASSAGE_EMPTY	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_TwoBoards\main.h	52;"	d
 MEASSAGE_EMPTY	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_WakeUpFromStop\main.h	62;"	d
 MESSAGE1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\ADC\ADC1_AnalogWatchdog\main.c	41;"	d	file:
@@ -4309,9 +4369,9 @@ NMI_Handler	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Example
 NMI_Handler	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\stm32f0xx_it.c	/^void NMI_Handler(void)$/;"	f
 NMI_Handler	.\app\startup_stm32f0xx.s	/^NMI_Handler     PROC$/;"	l
 NMI_Handler	.\app\stm32f0xx_it.c	/^void NMI_Handler(void)$/;"	f
+NO_STR	.\include\typedef.h	19;"	d
 NSAC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^  __IO uint8_t  NSAC;                 \/*!< Data read access-time 2 in CLK cycles *\/$/;"	m	struct:__anon191
-NSS_High	.\hal\hal_spi.h	14;"	d
-NULL	.\include\typedef.h	10;"	d
+NULL	.\include\typedef.h	12;"	d
 NVIC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	461;"	d
 NVIC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	854;"	d
 NVIC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	990;"	d
@@ -4433,6 +4493,7 @@ OB_WRP_Pages60to63	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPerip
 OB_WRP_Pages8to11	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_flash.h	117;"	d
 ODR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t ODR;          \/*!< GPIO port output data register,                           Address offset: 0x14 *\/$/;"	m	struct:__anon16
 OEM_AppliID	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^  __IO uint16_t OEM_AppliID;          \/*!< OEM\/Application ID *\/$/;"	m	struct:__anon192
+OK_STR	.\include\typedef.h	18;"	d
 OPTKEYR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t OPTKEYR;      \/*!<FLASH OPT key register,                        Address offset: 0x08 *\/$/;"	m	struct:__anon14
 OR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t OR;              \/*!< TIM option register,                         Address offset: 0x50 *\/$/;"	m	struct:__anon24
 OSPEEDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t OSPEEDR;      \/*!< GPIO port output speed register,                          Address offset: 0x08 *\/$/;"	m	struct:__anon16
@@ -4441,6 +4502,7 @@ OWNADDRESS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples
 OWN_ADDRESS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_TwoBoards\main.h	57;"	d
 Opcode	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.h	/^  __IO uint8_t Opcode;$/;"	m	struct:__anon183
 Operande	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.h	/^  __IO uint8_t Operande[HDMI_CEC_TX_MESSAGE_LENGTH_MAX];$/;"	m	struct:__anon183
+PARTNUM	.\hal_cc1101\cc1101.h	/^    PARTNUM = 0x0030,$/;"	e	enum:CC1101_Addr
 PASSED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\DMA\FLASH_RAM\main.c	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon162	file:
 PASSED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\FLASH\Program\main.c	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon163	file:
 PASSED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\FLASH\Write_Protection\main.c	/^typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;$/;"	e	enum:__anon164	file:
@@ -4460,6 +4522,10 @@ PERIPH_BASE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx
 PFR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __I  uint32_t PFR[2];                  \/*!< Offset: 0x040 (R\/ )  Processor Feature Register                            *\/$/;"	m	struct:__anon100
 PFR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __I  uint32_t PFR[2];                  \/*!< Offset: 0x040 (R\/ )  Processor Feature Register                            *\/$/;"	m	struct:__anon116
 PI	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	283;"	d
+PKTCTRL0	.\hal_cc1101\cc1101.h	/^    PKTCTRL0,$/;"	e	enum:CC1101_Addr
+PKTCTRL1	.\hal_cc1101\cc1101.h	/^    PKTCTRL1,$/;"	e	enum:CC1101_Addr
+PKTLEN	.\hal_cc1101\cc1101.h	/^    PKTLEN,$/;"	e	enum:CC1101_Addr
+PKTSTATUS	.\hal_cc1101\cc1101.h	/^    PKTSTATUS,$/;"	e	enum:CC1101_Addr
 POLY_X	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.c	78;"	d	file:
 POLY_Y	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.c	77;"	d	file:
 PORT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  }  PORT [32];                          \/*!< Offset: 0x000 ( \/W)  ITM Stimulus Port Registers               *\/$/;"	m	struct:__anon103	typeref:union:__anon103::__anon104
@@ -4469,6 +4535,7 @@ PR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\
 PR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t PR;   \/*!< IWDG Prescaler register, Address offset: 0x04 *\/$/;"	m	struct:__anon19
 PRER	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t PRER;       \/*!< RTC prescaler register,                                   Address offset: 0x10 *\/$/;"	m	struct:__anon22
 PSC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t PSC;             \/*!< TIM prescaler register,                      Address offset: 0x28 *\/$/;"	m	struct:__anon24
+PTEST	.\hal_cc1101\cc1101.h	/^    PTEST,$/;"	e	enum:CC1101_Addr
 PUPDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t PUPDR;        \/*!< GPIO port pull-up\/pull-down register,                     Address offset: 0x0C *\/$/;"	m	struct:__anon16
 PUTCHAR_PROTOTYPE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\Lib_DEBUG\Lib_DEBUG_Example\main.c	52;"	d	file:
 PUTCHAR_PROTOTYPE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\Lib_DEBUG\Lib_DEBUG_Example\main.c	54;"	d	file:
@@ -4778,6 +4845,10 @@ RBAR_A2	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  
 RBAR_A3	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t RBAR_A3;                 \/*!< Offset: 0x024 (R\/W)  MPU Alias 3 Region Base Address Register       *\/$/;"	m	struct:__anon105
 RBAR_A3	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t RBAR_A3;                 \/*!< Offset: 0x024 (R\/W)  MPU Alias 3 Region Base Address Register       *\/$/;"	m	struct:__anon121
 RCC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	759;"	d
+RCCTRL0	.\hal_cc1101\cc1101.h	/^    RCCTRL0,$/;"	e	enum:CC1101_Addr
+RCCTRL0_STATUS	.\hal_cc1101\cc1101.h	/^    RCCTRL0_STATUS,$/;"	e	enum:CC1101_Addr
+RCCTRL1	.\hal_cc1101\cc1101.h	/^    RCCTRL1,$/;"	e	enum:CC1101_Addr
+RCCTRL1_STATUS	.\hal_cc1101\cc1101.h	/^    RCCTRL1_STATUS,$/;"	e	enum:CC1101_Addr
 RCC_ADCCLKConfig	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rcc.c	/^void RCC_ADCCLKConfig(uint32_t RCC_ADCCLK)$/;"	f
 RCC_ADCCLK_HSI14	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h	213;"	d
 RCC_ADCCLK_PCLK_Div2	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h	214;"	d
@@ -5187,7 +5258,6 @@ RCC_WaitForHSEStartUp	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPe
 RCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t RCR;             \/*!< TIM  repetition counter register,            Address offset: 0x30 *\/$/;"	m	struct:__anon24
 RDP	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t RDP;          \/*!<FLASH option byte Read protection,             Address offset: 0x00 *\/$/;"	m	struct:__anon15
 RDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t RDR;    \/*!< USART Receive Data register,              Address offset: 0x24 *\/$/;"	m	struct:__anon26
-READ_IRQ	.\hal\hal_spi.h	18;"	d
 READ_STATUS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.c	72;"	d	file:
 RECALPF_TIMEOUT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rtc.c	249;"	d	file:
 RESERVED	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^       uint32_t RESERVED;    \/*!< Reserved,                                                                  0x04 *\/$/;"	m	struct:__anon17
@@ -5274,7 +5344,19 @@ RESERVED7	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\I
 RESERVED8	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  uint16_t      RESERVED8;       \/*!< Reserved,                                                    0x22 *\/$/;"	m	struct:__anon24
 RESERVED8	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  uint16_t  RESERVED8;    \/*!< Reserved, 0x22                                                            *\/    $/;"	m	struct:__anon23
 RESET	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;$/;"	e	enum:__anon1
+RET_FAILED	.\include\typedef.h	16;"	d
+RET_SUCCESS	.\include\typedef.h	15;"	d
+RF_CS_HIGH	.\hal_cc1101\cc1101.h	6;"	d
+RF_CS_LOW	.\hal_cc1101\cc1101.h	7;"	d
 RF_GPIO	.\hal\hal_spi.h	5;"	d
+RF_MISO_HIGH	.\hal_cc1101\cc1101.h	12;"	d
+RF_MISO_LOW	.\hal_cc1101\cc1101.h	13;"	d
+RF_MISO_READ	.\hal_cc1101\cc1101.h	14;"	d
+RF_MOSI_HIGH	.\hal_cc1101\cc1101.h	16;"	d
+RF_MOSI_LOW	.\hal_cc1101\cc1101.h	17;"	d
+RF_MOSI_READ	.\hal_cc1101\cc1101.h	18;"	d
+RF_SCK_HIGH	.\hal_cc1101\cc1101.h	9;"	d
+RF_SCK_LOW	.\hal_cc1101\cc1101.h	10;"	d
 RF_SC_PIN	.\hal\hal_spi.h	8;"	d
 RIGHT_BUTTON_EXTI_IRQn	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval.h	189;"	d
 RIGHT_BUTTON_EXTI_LINE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval.h	186;"	d
@@ -5290,6 +5372,7 @@ RQR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include
 RSERVED1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^       uint32_t RSERVED1[31];$/;"	m	struct:__anon88
 RSERVED1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^       uint32_t RSERVED1[24];$/;"	m	struct:__anon99
 RSERVED1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^       uint32_t RSERVED1[24];$/;"	m	struct:__anon115
+RSSI	.\hal_cc1101\cc1101.h	/^    RSSI,$/;"	e	enum:CC1101_Addr
 RTC	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	727;"	d
 RTCAlarmCount	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\RTC\RTC_Timer\stm32f0xx_it.c	/^__IO uint32_t RTCAlarmCount = 0;$/;"	v
 RTC_ALRMAR_DT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	2279;"	d
@@ -5756,6 +5839,7 @@ RXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Exampl
 RXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\HyperTerminal_Interrupt\stm32f0xx_it.c	45;"	d	file:
 RXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeDMA\main.h	82;"	d
 RXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeInterrupt\main.h	76;"	d
+RXBYTES	.\hal_cc1101\cc1101.h	/^    RXBYTES,$/;"	e	enum:CC1101_Addr
 RXCRCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t RXCRCR;   \/*!< SPI Rx CRC register (not used in I2S mode),          Address offset: 0x14 *\/$/;"	m	struct:__anon23
 RXDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t RXDR;         \/*!< CEC Rx Data Register,                                       Address offset:0x0C *\/$/;"	m	struct:__anon6
 RXDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t RXDR;     \/*!< I2C Receive data register,         Address offset: 0x24 *\/$/;"	m	struct:__anon18
@@ -5811,6 +5895,7 @@ RxMessageLength	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_
 RxOkFlag	.\app\stm32f0xx_it.c	/^__IO 		uint8_t 	RxOkFlag=0;$/;"	v
 RxStatus	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2S\DataExchangeDMA\main.c	/^__IO uint32_t TxStatus= 0, RxStatus=0;$/;"	v
 Rx_Idx	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\SPI\SPI_TwoBoards\DataExchangeInterrupt\main.c	/^__IO uint8_t Rx_Idx = 0x00;$/;"	v
+Rx_Mode	.\hal_cc1101\cc1101.h	/^    Rx_Mode=0,$/;"	e	enum:CC1101_Mode
 SCB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	459;"	d
 SCB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	852;"	d
 SCB	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	988;"	d
@@ -6129,8 +6214,6 @@ SCnSCB_ICTR_INTLINESNUM_Pos	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Inc
 SCnSCB_ICTR_INTLINESNUM_Pos	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	560;"	d
 SCnSCB_Type	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^} SCnSCB_Type;$/;"	t	typeref:struct:__anon101
 SCnSCB_Type	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^} SCnSCB_Type;$/;"	t	typeref:struct:__anon117
-SDN_High	.\hal\hal_spi.h	16;"	d
-SDN_Low	.\hal\hal_spi.h	15;"	d
 SD_ADDRESS_ERROR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^  SD_ADDRESS_ERROR          = (0x20),$/;"	e	enum:__anon190
 SD_BLOCK_SIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	167;"	d
 SD_CID	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_spi_sd.h	/^} SD_CID;$/;"	t	typeref:struct:__anon192
@@ -6643,6 +6726,8 @@ SVC_Handler	.\app\stm32f0xx_it.c	/^void SVC_Handler(void)$/;"	f
 SVC_IRQn	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  SVC_IRQn                    = -5,     \/*!< 11 Cortex-M0 SV Call Interrupt                          *\/$/;"	e	enum:IRQn
 SWIER	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t SWIER;        \/*!<EXTI Software interrupt event register,                   Address offset: 0x10 *\/$/;"	m	struct:__anon13
 SWTRIGR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t SWTRIGR;      \/*!< DAC software trigger register,                            Address offset: 0x04 *\/$/;"	m	struct:__anon9
+SYNC0	.\hal_cc1101\cc1101.h	/^    SYNC0,$/;"	e	enum:CC1101_Addr
+SYNC1	.\hal_cc1101\cc1101.h	/^    SYNC1,$/;"	e	enum:CC1101_Addr
 SYNCHRO_TIMEOUT	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rtc.c	248;"	d	file:
 SYSCFG	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	738;"	d
 SYSCFG_BASE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	684;"	d
@@ -7240,6 +7325,9 @@ TEMPERATURE_THYS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Ex
 TEMPERATURE_TOS	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2C\I2C_TSENSOR\main.c	43;"	d	file:
 TER	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t TER;                     \/*!< Offset: 0xE00 (R\/W)  ITM Trace Enable Register                 *\/$/;"	m	struct:__anon103
 TER	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t TER;                     \/*!< Offset: 0xE00 (R\/W)  ITM Trace Enable Register                 *\/$/;"	m	struct:__anon119
+TEST0	.\hal_cc1101\cc1101.h	/^    TEST0 = 0x002E,$/;"	e	enum:CC1101_Addr
+TEST1	.\hal_cc1101\cc1101.h	/^    TEST1,$/;"	e	enum:CC1101_Addr
+TEST2	.\hal_cc1101\cc1101.h	/^    TEST2,$/;"	e	enum:CC1101_Addr
 TI1_Config	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -7945,6 +8033,7 @@ TXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Exampl
 TXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\HyperTerminal_Interrupt\stm32f0xx_it.c	44;"	d	file:
 TXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeDMA\main.h	81;"	d
 TXBUFFERSIZE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeInterrupt\main.h	75;"	d
+TXBYTES	.\hal_cc1101\cc1101.h	/^    TXBYTES,$/;"	e	enum:CC1101_Addr
 TXCRCR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t TXCRCR;   \/*!< SPI Tx CRC register (not used in I2S mode),          Address offset: 0x18 *\/$/;"	m	struct:__anon23
 TXDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t TXDR;         \/*!< CEC Tx data register ,                                      Address offset:0x08 *\/$/;"	m	struct:__anon6
 TXDR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t TXDR;     \/*!< I2C Transmit data register,        Address offset: 0x28 *\/$/;"	m	struct:__anon18
@@ -8027,6 +8116,7 @@ TxIndex	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\US
 TxMessageLength	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_cec.h	/^  __IO uint8_t TxMessageLength;$/;"	m	struct:__anon183
 TxStatus	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\I2S\DataExchangeDMA\main.c	/^__IO uint32_t TxStatus= 0, RxStatus=0;$/;"	v
 Tx_Idx	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\SPI\SPI_TwoBoards\DataExchangeInterrupt\main.c	/^__IO uint8_t Tx_Idx = 0x00;$/;"	v
+Tx_Mode	.\hal_cc1101\cc1101.h	/^    Tx_Mode$/;"	e	enum:CC1101_Mode
 UP_BUTTON_EXTI_IRQn	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval.h	211;"	d
 UP_BUTTON_EXTI_LINE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval.h	208;"	d
 UP_BUTTON_EXTI_PIN_SOURCE	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval.h	210;"	d
@@ -8415,12 +8505,19 @@ V	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    uint
 VAL	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^  __IO uint32_t VAL;                     \/*!< Offset: 0x008 (R\/W)  SysTick Current Value Register      *\/$/;"	m	struct:__anon90
 VAL	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t VAL;                     \/*!< Offset: 0x008 (R\/W)  SysTick Current Value Register      *\/$/;"	m	struct:__anon102
 VAL	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t VAL;                     \/*!< Offset: 0x008 (R\/W)  SysTick Current Value Register      *\/$/;"	m	struct:__anon118
+VCO_VC_DAC	.\hal_cc1101\cc1101.h	/^    VCO_VC_DAC,$/;"	e	enum:CC1101_Addr
+VERSION	.\hal_cc1101\cc1101.h	/^    VERSION,$/;"	e	enum:CC1101_Addr
 VTOR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^  __IO uint32_t VTOR;                    \/*!< Offset: 0x008 (R\/W)  Vector Table Offset Register                          *\/$/;"	m	struct:__anon100
 VTOR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^  __IO uint32_t VTOR;                    \/*!< Offset: 0x008 (R\/W)  Vector Table Offset Register                          *\/$/;"	m	struct:__anon116
 Vertical	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\Common\stm32_eval_legacy.h	197;"	d
 Volume	.\include\typedef.h	/^    uint8_t Volume;$/;"	m	struct:_configData
 WARN	.\include\log.h	8;"	d
 WINR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t WINR; \/*!< IWDG Window register,    Address offset: 0x10 *\/$/;"	m	struct:__anon19
+WORCTRL	.\hal_cc1101\cc1101.h	/^    WORCTRL,$/;"	e	enum:CC1101_Addr
+WOREVT0	.\hal_cc1101\cc1101.h	/^    WOREVT0,$/;"	e	enum:CC1101_Addr
+WOREVT1	.\hal_cc1101\cc1101.h	/^    WOREVT1,$/;"	e	enum:CC1101_Addr
+WORTIME0	.\hal_cc1101\cc1101.h	/^    WORTIME0,$/;"	e	enum:CC1101_Addr
+WORTIME1	.\hal_cc1101\cc1101.h	/^    WORTIME1,$/;"	e	enum:CC1101_Addr
 WPR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint32_t WPR;        \/*!< RTC write protection register,                            Address offset: 0x24 *\/$/;"	m	struct:__anon22
 WRP0	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t WRP0;         \/*!<FLASH option byte write protection 0,          Address offset: 0x08 *\/$/;"	m	struct:__anon15
 WRP1	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h	/^  __IO uint16_t WRP1;         \/*!<FLASH option byte write protection 1,          Address offset: 0x0C *\/$/;"	m	struct:__anon15
@@ -9181,6 +9278,7 @@ __set_PSP	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cmFunc.h
 __user_initial_stackheap	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Source\Templates\arm\startup_stm32f0xx.s	/^__user_initial_stackheap$/;"	l
 __user_initial_stackheap	.\app\startup_stm32f0xx.s	/^__user_initial_stackheap$/;"	l
 __vector_table	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Device\ST\STM32F0xx\Source\Templates\iar\startup_stm32f0xx.s	/^__vector_table$/;"	l
+_cc1101	.\hal_cc1101\cc1101.h	/^typedef struct _cc1101$/;"	s
 _close	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\TrueSTUDIO\Project\syscalls.c	/^int _close(int file)$/;"	f
 _configData	.\include\typedef.h	/^__packed typedef struct _configData$/;"	s
 _delay_	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.h	93;"	d
@@ -9535,10 +9633,16 @@ buildInfo	.\app\main.c	/^void buildInfo()$/;"	f
 capture	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\OC_Toggle\stm32f0xx_it.c	/^uint16_t capture = 0;$/;"	v
 capture	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\TIM\Time_base\stm32f0xx_it.c	/^uint16_t capture = 0;$/;"	v
 capture	.\app\stm32f0xx_it.c	/^uint16_t capture = 0;$/;"	v
+cc1101	.\hal_cc1101\cc1101.c	/^static CC1101_T cc1101;$/;"	v	file:
 cc1101Log	.\include\log.h	25;"	d
 cc1101_GPIOInit	.\hal_cc1101\cc1101.c	/^static void cc1101_GPIOInit( void )$/;"	f	file:
 cc1101_Init	.\hal_cc1101\cc1101.c	/^void cc1101_Init()$/;"	f
+cc1101_ModeSet	.\hal_cc1101\cc1101.c	/^void cc1101_ModeSet( enum CC1101_Mode mode )$/;"	f
+cc1101_PowerReset	.\hal_cc1101\cc1101.c	/^static void cc1101_PowerReset( void )$/;"	f	file:
+cc1101_ReadData	.\hal_cc1101\cc1101.c	/^static uint8 cc1101_ReadData( uint8 addr )$/;"	f	file:
 cc1101_RegInit	.\hal_cc1101\cc1101.c	/^static void cc1101_RegInit( void )$/;"	f	file:
+cc1101_WriteCmd	.\hal_cc1101\cc1101.c	/^static uint8 cc1101_WriteCmd( uint8 cmd )$/;"	f	file:
+cc1101_WriteData	.\hal_cc1101\cc1101.c	/^static uint8 cc1101_WriteData( uint8 addr,uint8 value )$/;"	f	file:
 clear	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\TASKING\.metadata\cstart_thumb2.asm	/^clear:$/;"	l
 clip_q31_to_q15	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^  static __INLINE q15_t clip_q31_to_q15($/;"	f
 clip_q31_to_q7	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^  static __INLINE q7_t clip_q31_to_q7($/;"	f
@@ -9557,6 +9661,7 @@ countof	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\US
 countof	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\USART\USART_TwoBoards\DataExchangeInterrupt\main.h	37;"	d
 cploop	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\TASKING\.metadata\cstart_thumb2.asm	/^cploop:$/;"	l
 daclevel	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\COMP\COMP_LDR\main.c	/^uint8_t ldrlevel = 11, ldrlevelp = 0, daclevel = 0;$/;"	v
+data	.\hal_cc1101\cc1101.h	/^  int32 data;$/;"	m	struct:_cc1101
 delay	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_lcd.c	/^static void delay(__IO uint32_t nCount)$/;"	f	file:
 devDump	.\include\log.h	14;"	d
 done	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\TASKING\.metadata\cstart_thumb2.asm	/^done:   $/;"	l
@@ -9595,6 +9700,8 @@ ifftFlagR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^
 ifftFlagR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    uint8_t  ifftFlagR;                         \/**< flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform. *\/$/;"	m	struct:__anon51
 ifftFlagR	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    uint8_t  ifftFlagR;                       \/**< flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform. *\/$/;"	m	struct:__anon50
 initialise_monitor_handles	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Templates\TrueSTUDIO\Project\syscalls.c	/^void initialise_monitor_handles()$/;"	f
+int32	.\include\typedef.h	/^typedef int                int32;$/;"	t
+int8	.\include\typedef.h	/^typedef char               int8;$/;"	t
 keyInit	.\hal\hal_exti.c	/^void keyInit()$/;"	f
 ldrlevel	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\COMP\COMP_LDR\main.c	/^uint8_t ldrlevel = 11, ldrlevelp = 0, daclevel = 0;$/;"	v
 ldrlevelp	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\COMP\COMP_LDR\main.c	/^uint8_t ldrlevel = 11, ldrlevelp = 0, daclevel = 0;$/;"	v
@@ -9775,7 +9882,7 @@ pCoeffs	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^  
 pCoeffs	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q31_t *pCoeffs;      \/**< points to the coefficient array. The array is of length numTaps. *\/$/;"	m	struct:__anon72
 pCoeffs	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q7_t *pCoeffs;                \/**< points to the coefficient array. The array is of length numTaps.*\/$/;"	m	struct:__anon79
 pCoeffs	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q7_t *pCoeffs;           \/**< points to the coefficient array. The array is of length numTaps.*\/$/;"	m	struct:__anon29
-pConfigData	.\include\typedef.h	/^    configdata_t    pConfigData; $/;"	m	struct:_SMARTLOCK_T
+pConfigData	.\include\typedef.h	/^    configdata_t    pConfigData;$/;"	m	struct:_SMARTLOCK_T
 pCosFactor	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    float32_t *pCosFactor;              \/**< points to the cosFactor table. *\/$/;"	m	struct:__anon53
 pCosFactor	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q15_t *pCosFactor;                  \/**< points to the cosFactor table. *\/$/;"	m	struct:__anon55
 pCosFactor	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q31_t *pCosFactor;                  \/**< points to the cosFactor table. *\/$/;"	m	struct:__anon54
@@ -9865,6 +9972,7 @@ rcv_inc	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\CE
 rcv_inc	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Project\STM32F0xx_StdPeriph_Examples\CEC\Multi_Address\stm32f0xx_it.c	/^__IO uint8_t send_inc = 0, rcv_inc = 0;$/;"	v
 recipTable	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q15_t *recipTable;   \/**< Points to the reciprocal initial value table. *\/$/;"	m	struct:__anon75
 recipTable	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\arm_math.h	/^    q31_t *recipTable;    \/**< points to the reciprocal initial value table. *\/$/;"	m	struct:__anon74
+rfSettings	.\hal_cc1101\cc1101.c	/^static char rfSettings[] = {$/;"	v	file:
 sEE1_DevStructure	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_i2c_ee_cpal.c	/^ sEE_InitTypeDef sEE1_DevStructure = {&I2C1_DevStructure, 0, 0, 0, sEE_STATE_IDLE};          \/* Initialize All structure parameters to 0 *\/  $/;"	v
 sEE1_RXTransfer	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_i2c_ee_cpal.c	/^CPAL_TransferTypeDef  sEE1_RXTransfer = {$/;"	v
 sEE1_TXTransfer	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Utilities\STM32_EVAL\STM320518_EVAL\stm320518_eval_i2c_ee_cpal.c	/^CPAL_TransferTypeDef  sEE1_TXTransfer = { $/;"	v
@@ -9991,7 +10099,6 @@ u16	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    __
 u16	.\include\typedef.h	/^typedef uint16_t           u16;$/;"	t
 u32	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^    __O  uint32_t   u32;                 \/*!< Offset: 0x000 ( \/W)  ITM Stimulus Port 32-bit                  *\/$/;"	m	union:__anon103::__anon104
 u32	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    __O  uint32_t   u32;                 \/*!< Offset: 0x000 ( \/W)  ITM Stimulus Port 32-bit                  *\/$/;"	m	union:__anon119::__anon120
-u32	.\include\typedef.h	/^typedef uint32_t           u32;$/;"	t
 u8	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm3.h	/^    __O  uint8_t    u8;                  \/*!< Offset: 0x000 ( \/W)  ITM Stimulus Port 8-bit                   *\/$/;"	m	union:__anon103::__anon104
 u8	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm4.h	/^    __O  uint8_t    u8;                  \/*!< Offset: 0x000 ( \/W)  ITM Stimulus Port 8-bit                   *\/$/;"	m	union:__anon119::__anon120
 u8	.\include\typedef.h	/^typedef uint8_t            u8;$/;"	t
@@ -9999,6 +10106,8 @@ uart1Send	.\hal\hal_uart.c	/^uint16_t uart1Send( uint8_t *data, uint16_t length 
 uart2Send	.\hal\hal_uart.c	/^uint16_t uart2Send( uint8_t *data, uint16_t length )$/;"	f
 uartOpen	.\hal\hal_uart.c	/^void uartOpen( char port ,uint32_t bps )$/;"	f
 uart_write	.\hal\hal_uart.c	/^int8_t uart_write(uint8_t *buf, uint32_t len)$/;"	f
+uint32	.\include\typedef.h	/^typedef unsigned int       uint32;$/;"	t
+uint8	.\include\typedef.h	/^typedef unsigned char      uint8;$/;"	t
 uint8_t	.\include\typedef.h	/^typedef unsigned char      uint8_t;$/;"	t
 w	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^  uint32_t w;                            \/*!< Type      used for word access                  *\/$/;"	m	union:__anon80
 w	.\STM32F0xx_StdPeriph_Lib_V1.0.0\Libraries\CMSIS\Include\core_cm0.h	/^  uint32_t w;                            \/*!< Type      used for word access                  *\/$/;"	m	union:__anon82
