@@ -25,12 +25,19 @@
 #define GDO_2_LOW           GPIO_ResetBits(RF_GPIO, GDO_2)
 #define GDO_2_READ          GPIO_ReadInputDataBit(RF_GPIO, GDO_2)
 
-
+/*CC1101命令掩码  */
+#define WRITE_SINGLE        0x00                        //单独写
 #define WRITE_BURST         0x40                        //连续写入
 #define READ_SINGLE         0x80                        //单独读
 #define READ_BURST          0xC0                        //连续读
 #define BYTES_IN_RXFIFO     0x7F                        //接收缓冲区的有效字节数
 #define CRC_OK              0x80                        //CRC校验通过位标志
+
+/*FIFO命令掩码*/
+#define BURST_READ_FIFO     0xff        //突发读取RX FIFO
+#define BYTE_READ_FIFO      0xBF        //单字节读取 RX FIFO
+#define BURST_WRITE_FIFO    0x7f        //突发写TX FIFO
+#define BYTE_WRITE_FIFO     0x3f        //单字节写 TX FIFO
 
 enum CC1101_Addr
 {
