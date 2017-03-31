@@ -130,10 +130,27 @@ enum CC1101_CmdAddr
     CCxxx0_SNOP      =   0x3D        // No operation. May be used to pad strobe commands to two
 };
 
+enum CC1101_STATUS_REG
+{
+    //只读的状态寄存器,如果写入将导致命令滤波
+    CC1101_REG_PARTNUM      =   0xf0,   //CC2550的组成部分数目
+    CC1101_REG_VERSION      =   0xf1,   //当前版本数
+    CC1101_REG_FREQEST      =   0xf2,   //频率偏移估计
+    CC1101_REG_LQI          =   0xf3,   //连接质量的解调器估计
+    CC1101_REG_RSSI         =   0xf4,   //接收信号强度指示
+    CC1101_REG_MARCSTATE    =   0xf5,   //控制状态机状态
+    CC1101_REG_WORTIME1     =   0xf6,   //WOR计时器高字节
+    CC1101_REG_WORTIME0     =   0xf7,   //WOR计时器低字节
+    CC1101_REG_PKTSTATUS    =   0xf8,   //当前GDOx状态和数据包状态
+    CC1101_REG_VCOVCDAC     =   0xf9,   //PLL校准模块的当前设定
+    CC1101_REG_TXBYTES      =   0xfA,   //TX FIFO中的下溢和比特数
+    CC1101_REG_RXBYTES      =   0xfB,   //RX FIFO中的下溢和比特数
+};
 enum CC1101_Mode
 {
     Rx_Mode=0,
-    Tx_Mode
+    Tx_Mode,
+    IDLE_Mode
 };
 typedef struct _cc1101
 {
@@ -143,4 +160,6 @@ typedef struct _cc1101
 
 
 void cc1101_Init();
+void cc1101_ModeSet( enum CC1101_Mode mode );
+uint8 cc1101_Receive( uint8 *pData );
 #endif

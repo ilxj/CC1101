@@ -4,7 +4,7 @@
 static CC1101_T cc1101;
 // Rf settings for CC1101
 static char rfSettings[] = {
-    0x29,  // IOCFG2              GDO2 Output Pin Configuration
+    0x01,  // IOCFG2              GDO2 Output Pin Configuration
     0x2E,  // IOCFG1              GDO1 Output Pin Configuration
     0x06,  // IOCFG0              GDO0 Output Pin Configuration
     0x47,  // FIFOTHR             RX FIFO and TX FIFO Thresholds
@@ -196,6 +196,10 @@ void cc1101_ModeSet( enum CC1101_Mode mode )
             cc1101Log( INFO,"%s : Tx_Mode\n",__FUNCTION__ );
             cc1101_WriteCmd( CCxxx0_STX );
             break;
+        case IDLE_Mode:
+            cc1101Log( INFO,"%s : IDLE_Mode\n",__FUNCTION__ );
+            cc1101_WriteCmd( CCxxx0_SIDLE );
+            break;
         default:
             cc1101Log( INFO,"%s : InValid=%d\n",__FUNCTION__,mode );
             break;
@@ -203,7 +207,23 @@ void cc1101_ModeSet( enum CC1101_Mode mode )
 }
 uint8 cc1101_Receive( uint8 *pData )
 {
+    uint8 len=0,i;
+    len = cc1101_ReadData( CC1101_REG_RXBYTES );
+    cc1101Log( INFO,"%s receiveLen=%d\n",__FUNCTION__,len );
 
+    RF_CS_LOW;
+    SPI2_SendByte(BURST_READ_FIFO);
+    for(i = 0;i < len;i ++)
+    {
+
+        pData[i] = SPI2_SendByte(0xff);
+        logDump( " %02X",pData[i] );
+    }
+    RF_CS_HIGH;
+    logDump("\r\n");
+    cc1101_ModeSet(CCxxx0_SIDLE);
+    cc1101_ModeSet( Rx_Mode );
+    return len;
 }
 void cc1101_Init()
 {
