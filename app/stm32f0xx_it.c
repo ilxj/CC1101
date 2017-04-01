@@ -135,42 +135,6 @@ void SysTick_Handler(void)
     //log( INFO,"%s %d \n",__FUNCTION__,__LINE__ );
   }
 }
-uint16_t capture = 0;
-// extern __IO uint16_t CCR1_Val;
-// extern __IO uint16_t CCR2_Val;
-// extern __IO uint16_t CCR3_Val;
-// extern __IO uint16_t CCR4_Val;
-void TIM3_IRQHandler(void)
-{
-  if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)
-  {
-    TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
-    capture++;
-    if( capture>=999 )
-    {/* 1s 定时 */
-      capture=0;
-      // log( INFO,"%s %d \n",__FUNCTION__,__LINE__ );
-    }
-  }
-}
-void TIM2_IRQHandler(void)
-{
-  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
-  {
-    TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-    capture++;
-    if( capture>=10 )
-    {
-      //wifi_timer_ms();
-    }
-    if( capture>=999 )
-    {/* 1s 定时 */
-      capture=0;
-      //wifi_timer_s();
-      // log( INFO,"%s %d \n",__FUNCTION__,__LINE__ );
-    }
-  }
-}
 
 void EXTI2_3_IRQHandler()
 {

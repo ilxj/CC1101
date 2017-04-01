@@ -8,6 +8,8 @@ typedef char               int8;
 typedef unsigned char      uint8;
 typedef unsigned int       uint32;
 typedef int                int32;
+typedef uint16_t           uint16;
+
 #ifndef NULL
 #define NULL 0
 #endif

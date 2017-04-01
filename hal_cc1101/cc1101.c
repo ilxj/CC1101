@@ -2,9 +2,11 @@
 #include "cc1101.h"
 
 static CC1101_T cc1101;
+static uint8 _rssiValue=0;
+static uint8 _lqiValue= 0;
 // Rf settings for CC1101
 static char rfSettings[] = {
-    0x01,  // IOCFG2              GDO2 Output Pin Configuration
+    0x06,  // IOCFG2              GDO2 Output Pin Configuration
     0x2E,  // IOCFG1              GDO1 Output Pin Configuration
     0x06,  // IOCFG0              GDO0 Output Pin Configuration
     0x47,  // FIFOTHR             RX FIFO and TX FIFO Thresholds
@@ -163,7 +165,7 @@ static void cc1101_RegInit( void )
 
 /******************************************************************
 Function    :   cc1101_PowerReset
-说明        :   cc1101 上电复位
+说明        :   cc1101 上电复位,单位dBm
 return      ：  NULL
 Add by AlexLin    --2017-03-29
 ******************************************************************/
@@ -184,6 +186,49 @@ static void cc1101_PowerReset( void )
     RF_CS_HIGH;
     cc1101Log( CRITICAL,"%s ... [%s]\n",__FUNCTION__,OK_STR );
 }
+/******************************************************************
+Function    :   cc1101_RSSI
+说明        :   cc1101 RSSI 获取
+flag        :   0XFF,更新RSSI,
+return      ：  rssi data
+Add by AlexLin    --2017-03-29
+******************************************************************/
+uint8 cc1101_RSSI( uint8 flag )
+{
+    if( 0xFF==flag )
+    {
+        _rssiValue = cc1101_ReadData( CC1101_REG_RSSI );
+    }
+    return _rssiValue;
+}
+
+
+/******************************************************************
+Function    :   cc1101_LQI
+说明        :   cc1101 LQI 获取
+flag        :   0XFF,更新LQI.
+return      :   rssi data
+Add by AlexLin    --2017-04-01
+******************************************************************/
+uint8 cc1101_LQI( uint8 flag )
+{
+    if( 0XFF==flag )
+    {
+        _lqiValue = cc1101_ReadData( CC1101_REG_LQI );
+    }
+    return _lqiValue;
+}
+
+/******************************************************************
+Function    :   cc1101_ModeSet
+说明        :   cc1101 模式切换
+mode        :   Rx_Mode|Tx_Mode|IDLE_Mode
+Rx_Mode     :   接收模式
+Tx_Mode     :   发送模式
+IDLE_Mode   :   Idle模式
+return      :   NULL
+Add by AlexLin    --2017-04-01
+******************************************************************/
 void cc1101_ModeSet( enum CC1101_Mode mode )
 {
     switch( mode )
@@ -205,9 +250,43 @@ void cc1101_ModeSet( enum CC1101_Mode mode )
             break;
     }
 }
-uint8 cc1101_Receive( uint8 *pData )
+
+/******************************************************************
+Function    :   cc1101_SyncWordWrite
+说明        :   cc1101 设置同步字，4个字节大小
+pSyncWord   :   同步字指针,指向4个字节内容的同步字
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-01
+******************************************************************/
+int8 cc1101_SyncWordWrite( uint8 *pSyncWord )
 {
-    uint8 len=0,i;
+    cc1101Log( INFO,"%s SyncWord:%02x %02x\n",pSyncWord[0],pSyncWord[1] );
+    cc1101_WriteData( CC1101_REG_SYNC0,pSyncWord[0] );
+    cc1101_WriteData( CC1101_REG_SYNC1,pSyncWord[1] );
+    return RET_SUCCESS;
+}
+
+
+int8 cc1101_SyncWordRead( uint8 *pSyncWord )
+{
+    return RET_SUCCESS;
+}
+/******************************************************************
+Function    :   cc1101_Receive
+说明        :   cc1101 接收数据
+flag        :   0XFF,更新LQI.
+return      :   rssi data
+Add by AlexLin    --2017-04-01
+******************************************************************/
+uint8 cc1101_Rece( uint8 *pData )
+{
+    static uint8 cc1101Time=0;
+    uint8 len=0,i=0;
+    uint8 rssi=0,lqi=0;
+    int8 ack_flag=0;
+    cc1101Log( INFO,"Sync world \n");
+    cc1101Log( INFO,"wait the end of packet...\n");
+    while( GDO_2_READ );
     len = cc1101_ReadData( CC1101_REG_RXBYTES );
     cc1101Log( INFO,"%s receiveLen=%d\n",__FUNCTION__,len );
 
@@ -217,18 +296,54 @@ uint8 cc1101_Receive( uint8 *pData )
     {
 
         pData[i] = SPI2_SendByte(0xff);
+
         logDump( " %02X",pData[i] );
     }
+    cc1101Time++;
+    _rssiValue = pData[len-2];
+    _lqiValue = pData[len-1]&0x7F;
+    ack_flag =( (pData[len-1] &( 1<<7 )) >> 7 );
     RF_CS_HIGH;
     logDump("\r\n");
-    cc1101_ModeSet(CCxxx0_SIDLE);
+
+    cc1101_ModeSet(IDLE_Mode);
     cc1101_ModeSet( Rx_Mode );
+
+    cc1101Log( INFO,"rssi=%02x LQI=%02x ack=%d time=%d\n\n\n",_rssiValue,_lqiValue,ack_flag,cc1101Time );
     return len;
+}
+
+/******************************************************************
+Function    :   cc1101_Send
+说明        :   cc1101 发送数据,最长的数据长度是64个字节
+pData       :   需要发送的数据指针
+len         :   数据长度
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-01
+******************************************************************/
+uint8 cc1101_Send( uint8 *pData,uint8 len )
+{
+    uint16 i=0;
+    cc1101_ModeSet( IDLE_Mode );    //退出当前模式
+    cc1101_WriteCmd( CCxxx0_SFTX );    //清空发送缓冲区
+    // CC1101_WriteTxFIFO(pBuff, len);     //写入数据到发送缓冲区
+    RF_CS_LOW;
+    SPI2_SendByte( BURST_WRITE_FIFO );
+    SPI2_SendByte( len );
+    for( i = 0;i < len;i ++ )
+    {
+        SPI2_SendByte( pData[i] );
+    }
+    RF_CS_HIGH;
+    cc1101_ModeSet( Tx_Mode );     //开始发送数据
+    while( !GDO_2_READ );
+    while( GDO_2_READ );
+    cc1101_ModeSet( IDLE_Mode );    //退出当前模式
+    return RET_SUCCESS;
 }
 void cc1101_Init()
 {
     cc1101_GPIOInit();
     cc1101_PowerReset();
     cc1101_RegInit();
-
 }

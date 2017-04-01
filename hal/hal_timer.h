@@ -4,4 +4,5 @@
 #include "typedef.h"
 void dumpSysClocks( void );
 void TIM3_Int_Init(u16 arr,u16 psc);
+uint32 getTime_S( void );
 #endif

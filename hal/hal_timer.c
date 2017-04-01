@@ -3,14 +3,8 @@
 #include "hal_timer.h"
 #include "log.h"
 
-// TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-// TIM_OCInitTypeDef  TIM_OCInitStructure;
-// __IO uint16_t CCR1_Val = 40961;
-// __IO uint16_t CCR2_Val = 27309;
-// __IO uint16_t CCR3_Val = 13654;
-// __IO uint16_t CCR4_Val = 6826;
-// uint16_t PrescalerValue = 0;
 
+static uint32 _halTime_S=0;
 void dumpSysClocks( void )
 {
     uint8_t SYSCLKSource;
@@ -84,4 +78,45 @@ void TIM2_Int_Init(u16 arr,u16 psc)
     NVIC_Init(&NVIC_InitStructure);  //³õÊ¼»¯NVIC¼Ä´æÆ÷
     TIM_Cmd(TIM2, ENABLE);  //Ê¹ÄÜTIMx
     log(INFO,"%s OK.\n",__FUNCTION__ );
+}
+
+void TIM2_IRQHandler(void)
+{
+  static uint16 capture = 0;
+  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
+  {
+    TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+    capture++;
+    if( capture>=10 )
+    {
+      //wifi_timer_ms();
+    }
+    if( capture>=999 )
+    {/* 1s 定时 */
+      capture=0;
+      _halTime_S++;
+      //wifi_timer_s();
+      // log( INFO,"%s %d \n",__FUNCTION__,__LINE__ );
+    }
+  }
+}
+
+void TIM3_IRQHandler(void)
+{
+  static uint16 capture = 0;
+  if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)
+  {
+    TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
+    capture++;
+    if( capture>=999 )
+    {/* 1s 定时 */
+      capture=0;
+      // log( INFO,"%s %d \n",__FUNCTION__,__LINE__ );
+    }
+  }
+}
+
+uint32 getTime_S( void )
+{
+    return _halTime_S;
 }
