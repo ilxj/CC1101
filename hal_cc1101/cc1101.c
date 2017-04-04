@@ -144,6 +144,7 @@ static void cc1101_RegInit( void )
         cc1101Log( INFO,"Write addr=%02x value=%02x\n",addr,rfSettings[i] );
         cc1101_WriteData( addr,rfSettings[i] );
     }
+    // cc1101_SyncWordWrite( "AB" );
     logDump("\n");
     for( i=0;i<regNum;i++ )
     {
@@ -155,7 +156,6 @@ static void cc1101_RegInit( void )
         {
             addr = i;
         }
-        // Delay_ms(100);
         status = cc1101_ReadData( addr );
         cc1101Log( INFO,"Read addr=%02x value=%02x\n",addr,status );
     }
@@ -253,22 +253,60 @@ void cc1101_ModeSet( enum CC1101_Mode mode )
 
 /******************************************************************
 Function    :   cc1101_SyncWordWrite
-说明        :   cc1101 设置同步字，4个字节大小
+说明        :   cc1101 设置同步字，2个字节大小
 pSyncWord   :   同步字指针,指向4个字节内容的同步字
 return      :   RET_SUCCESS/RET_FAILED
 Add by AlexLin    --2017-04-01
 ******************************************************************/
 int8 cc1101_SyncWordWrite( uint8 *pSyncWord )
 {
-    cc1101Log( INFO,"%s SyncWord:%02x %02x\n",pSyncWord[0],pSyncWord[1] );
+    cc1101Log( INFO,"%s SyncWord:%02x %02x\n",__FUNCTION__, pSyncWord[0],pSyncWord[1] );
     cc1101_WriteData( CC1101_REG_SYNC0,pSyncWord[0] );
     cc1101_WriteData( CC1101_REG_SYNC1,pSyncWord[1] );
     return RET_SUCCESS;
 }
 
-
+/******************************************************************
+Function    :   cc1101_SyncWordRead
+说明        :   cc1101 读取同步字，2个字节大小
+pSyncWord   :   同步字指针,指向4个字节内容的同步字
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-02
+******************************************************************/
 int8 cc1101_SyncWordRead( uint8 *pSyncWord )
 {
+    pSyncWord[0] = cc1101_ReadData( CC1101_REG_SYNC0 );
+    pSyncWord[1] = cc1101_ReadData( CC1101_REG_SYNC1 );
+    return RET_SUCCESS;
+}
+
+
+/******************************************************************
+Function    :   cc1101_GDOxCFG
+说明        :   cc1101 GDOx 引脚配置
+GDOX_NUM    :   0|1|2
+value       :   要配置的值
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-02
+******************************************************************/
+int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value )
+{
+    cc1101Log( INFO,"%s GDOx=%d value=%02x\n",__FUNCTION__,GDOX_NUM,value );
+    switch( GDOX_NUM )
+    {
+        case 0:
+            cc1101_WriteData( CC1101_REG_IOCFG2,value );
+            break;
+        case 1:
+            cc1101_WriteData( CC1101_REG_IOCFG1,value );
+            break;
+        case 2:
+            cc1101_WriteData( CC1101_REG_IOCFG0,value );
+            break;
+        default :
+            return RET_FAILED;
+            break;
+    }
     return RET_SUCCESS;
 }
 /******************************************************************
@@ -341,6 +379,7 @@ uint8 cc1101_Send( uint8 *pData,uint8 len )
     cc1101_ModeSet( IDLE_Mode );    //退出当前模式
     return RET_SUCCESS;
 }
+
 void cc1101_Init()
 {
     cc1101_GPIOInit();

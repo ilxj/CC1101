@@ -173,6 +173,8 @@ typedef struct _cc1101
 
 uint8 cc1101_RSSI( uint8 flag );
 uint8 cc1101_LQI( uint8 flag );
+int8 cc1101_SyncWordWrite( uint8 *pSyncWord );
+int8 cc1101_SyncWordRead( uint8 *pSyncWord );
 void cc1101_Init();
 void cc1101_ModeSet( enum CC1101_Mode mode );
 uint8 cc1101_Rece( uint8 *pData );
