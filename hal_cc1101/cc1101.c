@@ -97,7 +97,7 @@ Function    :   cc1101_WriteData
 说明        :   向CC1101对应地址写入数据
 addr        :   要写入数据的地址值
 value       :   需要写入的数据
-return      ：  NULL
+return      ：  CC1101的底层状态
 Add by AlexLin    --2017-03-29
 ******************************************************************/
 static uint8 cc1101_WriteData( uint8 addr,uint8 value )
@@ -109,6 +109,14 @@ static uint8 cc1101_WriteData( uint8 addr,uint8 value )
     RF_CS_HIGH;
     return RET_SUCCESS;
 }
+
+/******************************************************************
+Function    :   cc1101_ReadData
+说明        :   向CC1101对应地址读取数据
+addr        :   要读数据的地址值
+return      ：  读出的数据
+Add by AlexLin    --2017-04-05
+******************************************************************/
 static uint8 cc1101_ReadData( uint8 addr )
 {
     uint8 status=0;
@@ -119,6 +127,7 @@ static uint8 cc1101_ReadData( uint8 addr )
     RF_CS_HIGH;
     return status;
 }
+
 /******************************************************************
 Function    :   cc1101_RegInit
 说明        :   cc1101 寄存器初始化
@@ -131,19 +140,66 @@ static void cc1101_RegInit( void )
     uint8 regNum = sizeof(rfSettings)/sizeof(rfSettings[0]);
     cc1101Log( CRITICAL,"%s regNum=%d\n",__FUNCTION__,regNum );
 
-    for( i=0;i<regNum;i++ )
-    {
-        if( i>0X2E )
-        {
-            addr = i+1;
-        }
-        else
-        {
-            addr = i;
-        }
-        cc1101Log( INFO,"Write addr=%02x value=%02x\n",addr,rfSettings[i] );
-        cc1101_WriteData( addr,rfSettings[i] );
-    }
+    cc1101_WriteData( CC1101_REG_IOCFG1,IOCFG1 );
+    cc1101_WriteData( CC1101_REG_SYNC1,SYNC1 );
+    cc1101_WriteData( CC1101_REG_SYNC0,SYNC0 );
+    cc1101_WriteData( CC1101_REG_PKTLEN,PKTLEN );
+    cc1101_WriteData( CC1101_REG_PKTCTRL1,PKTCTRL1 );
+    cc1101_WriteData( CC1101_REG_PKTCTRL0,PKTCTRL0 );
+    cc1101_WriteData( CC1101_REG_ADDR,ADDR );
+    cc1101_WriteData( CC1101_REG_CHANNR,CHANNR );
+    cc1101_WriteData( CC1101_REG_IOCFG1,FSCTRL1 );
+    cc1101_WriteData( CC1101_REG_FSCTRL1,FSCTRL0 );
+    cc1101_WriteData( CC1101_REG_FREQ2,FREQ2 );
+    cc1101_WriteData( CC1101_REG_FREQ1,FREQ1 );
+    cc1101_WriteData( CC1101_REG_FREQ0,FREQ0 );
+    cc1101_WriteData( CC1101_REG_MDMCFG4,MDMCFG4 );
+    cc1101_WriteData( CC1101_REG_MDMCFG3,MDMCFG3 );
+    cc1101_WriteData( CC1101_REG_MDMCFG2,MDMCFG2 );
+    cc1101_WriteData( CC1101_REG_MDMCFG1,MDMCFG1 );
+    cc1101_WriteData( CC1101_REG_MDMCFG0,MDMCFG0 );
+    cc1101_WriteData( CC1101_REG_DEVIATN,DEVIATN );
+    cc1101_WriteData( CC1101_REG_MCSM2,MCSM2 );
+    cc1101_WriteData( CC1101_REG_MCSM1,MCSM1 );
+    cc1101_WriteData( CC1101_REG_MCSM0,MCSM0 );
+    cc1101_WriteData( CC1101_REG_FOCCFG,FOCCFG );
+    cc1101_WriteData( CC1101_REG_BSCFG,BSCFG );
+    cc1101_WriteData( CC1101_REG_AGCCTRL2,AGCCTRL2 );
+    cc1101_WriteData( CC1101_REG_AGCCTRL1,AGCCTRL1 );
+    cc1101_WriteData( CC1101_REG_AGCCTRL0,AGCCTRL0 );
+    cc1101_WriteData( CC1101_REG_WOREVT1,WOREVT1 );
+    cc1101_WriteData( CC1101_REG_WOREVT0,WOREVT0 );
+    cc1101_WriteData( CC1101_REG_WORCTRL,WORCTRL );
+    cc1101_WriteData( CC1101_REG_FREND1,FREND1 );
+    cc1101_WriteData( CC1101_REG_FREND0,FREND0 );
+    cc1101_WriteData( CC1101_REG_FSCAL3,FSCAL3 );
+    cc1101_WriteData( CC1101_REG_FSCAL2,FSCAL2 );
+    cc1101_WriteData( CC1101_REG_FSCAL1,FSCAL1 );
+    cc1101_WriteData( CC1101_REG_FSCAL0,FSCAL0 );
+    cc1101_WriteData( CC1101_REG_RCCTRL1,RCCTRL1 );
+    cc1101_WriteData( CC1101_REG_RCCTRL0,RCCTRL0 );
+    cc1101_WriteData( CC1101_REG_FSTEST,FSTEST );
+    cc1101_WriteData( CC1101_REG_PTEST,PTEST );
+    cc1101_WriteData( CC1101_REG_AGCTEST,AGCTEST );
+    cc1101_WriteData( CC1101_REG_TEST2,TEST2 );
+    cc1101_WriteData( CC1101_REG_TEST1,TEST1 );
+    cc1101_WriteData( CC1101_REG_TEST0,TEST0 );
+    cc1101_GDOxCFG();
+    cc1101_GDOxCFG();
+
+    // for( i=0;i<regNum;i++ )
+    // {
+    //     if( i>0X2E )
+    //     {
+    //         addr = i+1;
+    //     }
+    //     else
+    //     {
+    //         addr = i;
+    //     }
+    //     cc1101Log( INFO,"Write addr=%02x value=%02x\n",addr,rfSettings[i] );
+    //     cc1101_WriteData( addr,rfSettings[i] );
+    // }
     // cc1101_SyncWordWrite( "AB" );
     logDump("\n");
     for( i=0;i<regNum;i++ )

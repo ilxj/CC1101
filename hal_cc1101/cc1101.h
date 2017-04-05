@@ -39,7 +39,7 @@
 #define BURST_WRITE_FIFO    0x7f        //突发写TX FIFO
 #define BYTE_WRITE_FIFO     0x3f        //单字节写 TX FIFO
 
-//CC1101寄存器定义
+//CC1101寄存器地址定义
 typedef enum
 {
     //可读写的寄存器
@@ -70,9 +70,9 @@ typedef enum
     CC1101_REG_MCSM0        =   0x18,   //主通信控制状态机配置
     CC1101_REG_FOCCFG       =   0x19,   //频率偏移补偿配置
     CC1101_REG_BSCFG        =   0x1a,   //位同步配置
-    CC1101_REG_AGCTRL2      =   0x1b,   //AGC控制
-    CC1101_REG_AGCTRL1      =   0x1c,   //AGC控制
-    CC1101_REG_AGCTRL0      =   0x1d,   //AGC控制
+    CC1101_REG_AGCCTRL2      =   0x1b,   //AGC控制
+    CC1101_REG_AGCCTRL1      =   0x1c,   //AGC控制
+    CC1101_REG_AGCCTRL0      =   0x1d,   //AGC控制
     CC1101_REG_WOREVT1      =   0x1e,   //高字节时间0暂停
     CC1101_REG_WOREVT0      =   0x1f,   //低字节时间0暂停
     CC1101_REG_WORCTRL      =   0x20,   //电磁波激活控制
@@ -153,6 +153,56 @@ enum CC1101_CmdAddr
 //    CC1101_REG_TXBYTES      =   0xfA,   //TX FIFO中的下溢和比特数
 //    CC1101_REG_RXBYTES      =   0xfB,   //RX FIFO中的下溢和比特数
 //};
+
+typedef enum
+{
+    IOCFG1     =     0x2E,
+    FIFOTHR    =     0x47,
+    SYNC1      =     0xD3,
+    SYNC0      =     0x91,
+    PKTLEN     =     0xFF,
+    PKTCTRL1   =     0x04,
+    PKTCTRL0   =     0x05,
+    ADDR       =     0x00,
+    CHANNR     =     0x00,
+    FSCTRL1    =     0x06,
+    FSCTRL0    =     0x00,
+    FREQ2      =     0x10,
+    FREQ1      =     0xB1,
+    FREQ0      =     0x3B,
+    MDMCFG4    =     0xF6,
+    MDMCFG3    =     0x83,
+    MDMCFG2    =     0x13,
+    MDMCFG1    =     0x22,
+    MDMCFG0    =     0xF8,
+    DEVIATN    =     0x15,
+    MCSM2      =     0x07,
+    MCSM1      =     0x30,
+    MCSM0      =     0x18,
+    FOCCFG     =     0x16,
+    BSCFG      =     0x6C,
+    AGCCTRL2   =     0x03,
+    AGCCTRL1   =     0x40,
+    AGCCTRL0   =     0x91,
+    WOREVT1    =     0x87,
+    WOREVT0    =     0x6B,
+    WORCTRL    =     0xFB,
+    FREND1     =     0x56,
+    FREND0     =     0x10,
+    FSCAL3     =     0xE9,
+    FSCAL2     =     0x2A,
+    FSCAL1     =     0x00,
+    FSCAL0     =     0x1F,
+    RCCTRL1    =     0x41,
+    RCCTRL0    =     0x00,
+    FSTEST     =     0x59,
+    PTEST      =     0x7F,
+    AGCTEST    =     0x3F,
+    TEST2      =     0x81,
+    TEST1      =     0x35,
+    TEST0      =     0x09
+}CC1101_REG_VALUE;
+
 enum CC1101_Mode
 {
     Rx_Mode=0,
