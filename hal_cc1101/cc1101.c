@@ -183,8 +183,13 @@ static void cc1101_RegInit( void )
     cc1101_WriteData( CC1101_REG_TEST0,TEST0 );
     cc1101_GDOxCFG( 2,0x06 );
     cc1101_GDOxCFG( 0,0x06 );
-
     cc1101_SyncWordWrite( syncWord );
+    for( i=0;i<=0x2e;i++ )
+    {
+        status =  cc1101_ReadData(i);
+        cc1101Log( INFO,"%02x value=%02x \n",i,status );
+    }
+
     cc1101Log( CRITICAL,"%s ... [%s]\n",__FUNCTION__,OK_STR );
 }
 
@@ -402,6 +407,7 @@ uint8 cc1101_Send( uint8 *pData,uint8 len )
     while( !GDO_2_READ );
     while( GDO_2_READ );
     cc1101_ModeSet( IDLE_Mode );    //退出当前模式
+    cc1101_ModeSet( Rx_Mode );
     return RET_SUCCESS;
 }
 

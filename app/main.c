@@ -9,7 +9,7 @@ void buildInfo()
 uint32 lastTime=0;
 int main( void )
 {
-  uint8 buf[]={0XAA ,0XAA ,0X00 ,0X00 ,0XBB ,0XBB ,0X00 ,0X00 ,0X01 ,0X34 ,0X00 ,0X12 ,0X34 };
+  uint8 buf[]={0XAA ,0XAA ,0XA0 ,0X00 ,0XBB ,0XBB ,0X00 ,0X00 ,0X01 ,0X34 ,0X00 ,0X12 ,0X34 };
   SystemInit();
   SysTick_Config( SystemCoreClock / SycTi );
   uartOpen(1,115200);
@@ -24,11 +24,12 @@ int main( void )
   cc1101_ModeSet( Rx_Mode );
   while(1)
   {
-      if( getTime_S()-lastTime >=1 )
+      if( getTime_S()-lastTime >=10 )
       {
          lastTime = getTime_S();
          buf[11] = lastTime;
-         // cc1101_Send( buf,0X0D );
+         cc1101_Send( buf,0X0D );
+
       }
       if( GDO_2_READ )
       {
