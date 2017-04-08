@@ -223,6 +223,7 @@ typedef struct _cc1101
 
 uint8 cc1101_RSSI( uint8 flag );
 uint8 cc1101_LQI( uint8 flag );
+int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value );
 int8 cc1101_SyncWordWrite( uint8 *pSyncWord );
 int8 cc1101_SyncWordRead( uint8 *pSyncWord );
 void cc1101_Init();

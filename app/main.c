@@ -18,7 +18,7 @@ int main( void )
   Delay_Init( 48 );
   cc1101_Init();
 
-  //WatchDog_Init( 5*1000 );
+  WatchDog_Init( 5*1000 );
   TIM2_Int_Init( 4799,9 );
   cc1101_ModeSet( IDLE_Mode );
   cc1101_ModeSet( Rx_Mode );
@@ -34,6 +34,7 @@ int main( void )
       {
         cc1101_Rece( buf );
       }
+      WatchDog_Feed();
   }
   return 0;
 }
