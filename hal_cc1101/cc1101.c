@@ -184,6 +184,7 @@ static void cc1101_RegInit( void )
     cc1101_GDOxCFG( 2,0x06 );
     cc1101_GDOxCFG( 0,0x06 );
     cc1101_SyncWordWrite( syncWord );
+    cc1101_AddrFilterEnable( 1 );
     for( i=0;i<=0x2e;i++ )
     {
         status =  cc1101_ReadData(i);
@@ -339,6 +340,52 @@ int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value )
     }
     return RET_SUCCESS;
 }
+
+/******************************************************************
+Function    :   cc1101_AddrFilterEnable
+说明        :   cc1101 地址过滤使能/不使能
+flag        :   APP_DISABLE|APP_ENABLE
+value       :   要配置的值
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-02
+******************************************************************/
+int8 cc1101_AddrFilterEnable( uint8 flag )
+{
+    uint8 bit[2]=0,i=0;
+    uint8 value=0;
+
+    value = cc1101_ReadData( CC1101_REG_PKTCTRL1 );
+    cc1101Log( INFO,"Before Write value :%d \n",value );
+    bit[0] = get_bit( flag,0 );
+    bit[1] = get_bit( flag,1 );
+    for ( i = 0; i < 2; i++ )
+    {
+        /* code */
+        if( 1==bit[i] )
+        {
+            set_bit( value,i );
+        }
+        else
+        {
+            reset_bit( value,i );
+        }
+    }
+    cc1101Log( INFO,"bit0=%d bit1=%d \n",bit[0],bit[1] );
+    cc1101Log( INFO,"After Write value :%d \n",value );
+    return RET_FAILED;
+}
+
+void cc1101_AddrWrite( uint8 addr )
+{
+
+}
+
+
+uint8 cc1101_AddrRead()
+{
+    return 0;
+}
+
 /******************************************************************
 Function    :   cc1101_Receive
 说明        :   cc1101 接收数据

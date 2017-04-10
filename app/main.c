@@ -29,7 +29,6 @@ int main( void )
          lastTime = getTime_S();
          buf[11] = lastTime;
          cc1101_Send( buf,0X0D );
-
       }
       if( GDO_2_READ )
       {

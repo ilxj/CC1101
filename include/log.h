@@ -14,6 +14,7 @@
 #define devDump(format, args...) printf( format, ##args )
 
 #define logDump     devDump
+#define hexDump
 #define assert()    devDump("[func:%s][line:%d]param is illegal.\r\n", __FUNCTION__, __LINE__)
 #define log( level,format, args...)  \
 {\

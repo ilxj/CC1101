@@ -70,9 +70,9 @@ typedef enum
     CC1101_REG_MCSM0        =   0x18,   //主通信控制状态机配置
     CC1101_REG_FOCCFG       =   0x19,   //频率偏移补偿配置
     CC1101_REG_BSCFG        =   0x1a,   //位同步配置
-    CC1101_REG_AGCCTRL2      =   0x1b,   //AGC控制
-    CC1101_REG_AGCCTRL1      =   0x1c,   //AGC控制
-    CC1101_REG_AGCCTRL0      =   0x1d,   //AGC控制
+    CC1101_REG_AGCCTRL2     =   0x1b,   //AGC控制
+    CC1101_REG_AGCCTRL1     =   0x1c,   //AGC控制
+    CC1101_REG_AGCCTRL0     =   0x1d,   //AGC控制
     CC1101_REG_WOREVT1      =   0x1e,   //高字节时间0暂停
     CC1101_REG_WOREVT0      =   0x1f,   //低字节时间0暂停
     CC1101_REG_WORCTRL      =   0x20,   //电磁波激活控制
@@ -229,4 +229,5 @@ int8 cc1101_SyncWordRead( uint8 *pSyncWord );
 void cc1101_Init();
 void cc1101_ModeSet( enum CC1101_Mode mode );
 uint8 cc1101_Rece( uint8 *pData );
+int8 cc1101_AddrFilterEnable( uint8 flag );
 #endif
