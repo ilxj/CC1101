@@ -161,27 +161,27 @@ typedef enum
     SYNC1      =     0xD3,
     SYNC0      =     0x91,
     PKTLEN     =     0xFF,
-    PKTCTRL1   =     0x04,
+    PKTCTRL1   =     0x07,
     PKTCTRL0   =     0x05,
-    ADDR       =     0x00,
+    ADDR       =     0xAA,
     CHANNR     =     0x00,
-    FSCTRL1    =     0x06,
+    FSCTRL1    =     0x08,
     FSCTRL0    =     0x00,
     FREQ2      =     0x10,
     FREQ1      =     0xB1,
     FREQ0      =     0x3B,
-    MDMCFG4    =     0xF6,
+    MDMCFG4    =     0xCA,
     MDMCFG3    =     0x83,
-    MDMCFG2    =     0x13,
+    MDMCFG2    =     0x93,
     MDMCFG1    =     0x22,
     MDMCFG0    =     0xF8,
-    DEVIATN    =     0x15,
+    DEVIATN    =     0x35,
     MCSM2      =     0x07,
     MCSM1      =     0x30,
     MCSM0      =     0x18,
     FOCCFG     =     0x16,
     BSCFG      =     0x6C,
-    AGCCTRL2   =     0x03,
+    AGCCTRL2   =     0x43,
     AGCCTRL1   =     0x40,
     AGCCTRL0   =     0x91,
     WOREVT1    =     0x87,
@@ -189,15 +189,15 @@ typedef enum
     WORCTRL    =     0xFB,
     FREND1     =     0x56,
     FREND0     =     0x10,
-    FSCAL3     =     0xE9,
+    FSCAL3     =     0xEF,
     FSCAL2     =     0x2A,
-    FSCAL1     =     0x00,
+    FSCAL1     =     0x16,
     FSCAL0     =     0x1F,
     RCCTRL1    =     0x41,
     RCCTRL0    =     0x00,
     FSTEST     =     0x59,
     PTEST      =     0x7F,
-    AGCTEST    =     0x3F,
+    AGCTEST    =     0x3E,
     TEST2      =     0x81,
     TEST1      =     0x35,
     TEST0      =     0x09
@@ -209,16 +209,19 @@ enum CC1101_Mode
     Tx_Mode,
     IDLE_Mode
 };
-typedef enum  _cc1101_env
+
+
+typedef struct _ccEnv_T
 {
-    CC_RSSI=0,
-    CC_LQI,
-    CC_SyncWord,
-}CC1101_ENV;
-typedef struct _cc1101
-{
-  int32 data;
-}CC1101_T;
+    int8 RSSI;
+    uint8 LQI;
+    uint8 syncWord[2];
+    uint8 masterAddr;
+    uint8 clientAddr;
+    uint8 addrFilterMode;
+    uint8 packLenMode;
+}ccEnv_T;
+
 
 
 uint8 cc1101_RSSI( uint8 flag );
@@ -226,8 +229,11 @@ uint8 cc1101_LQI( uint8 flag );
 int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value );
 int8 cc1101_SyncWordWrite( uint8 *pSyncWord );
 int8 cc1101_SyncWordRead( uint8 *pSyncWord );
+int8 cc1101_AddrFilter( uint8 flag );
+void cc1101_AddrWrite( uint8 addr );
+void cc1101_PackLenMode( uint8 flag );
 void cc1101_Init();
 void cc1101_ModeSet( enum CC1101_Mode mode );
-uint8 cc1101_Rece( uint8 *pData );
-int8 cc1101_AddrFilterEnable( uint8 flag );
+int16 cc1101_Rece( uint8 *pData,uint8 dataLen );
+
 #endif

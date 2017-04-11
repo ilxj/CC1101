@@ -1,73 +1,10 @@
 #include "comm.h"
 #include "cc1101.h"
 
-static CC1101_T cc1101;
+
 static uint8 _rssiValue=0;
 static uint8 _lqiValue= 0;
-// Rf settings for CC1101
-static char rfSettings[] = {
-    0x06,  // IOCFG2              GDO2 Output Pin Configuration
-    0x2E,  // IOCFG1              GDO1 Output Pin Configuration
-    0x06,  // IOCFG0              GDO0 Output Pin Configuration
-    0x47,  // FIFOTHR             RX FIFO and TX FIFO Thresholds
-    0xD3,  // SYNC1               Sync Word, High Byte
-    0x91,  // SYNC0               Sync Word, Low Byte
-    0xFF,  // PKTLEN              Packet Length
-    0x04,  // PKTCTRL1            Packet Automation Control
-    0x05,  // PKTCTRL0            Packet Automation Control
-    0x00,  // ADDR                Device Address
-    0x00,  // CHANNR              Channel Number
-    0x06,  // FSCTRL1             Frequency Synthesizer Control
-    0x00,  // FSCTRL0             Frequency Synthesizer Control
-    0x10,  // FREQ2               Frequency Control Word, High Byte
-    0xB1,  // FREQ1               Frequency Control Word, Middle Byte
-    0x3B,  // FREQ0               Frequency Control Word, Low Byte
-    0xF6,  // MDMCFG4             Modem Configuration
-    0x83,  // MDMCFG3             Modem Configuration
-    0x13,  // MDMCFG2             Modem Configuration
-    0x22,  // MDMCFG1             Modem Configuration
-    0xF8,  // MDMCFG0             Modem Configuration
-    0x15,  // DEVIATN             Modem Deviation Setting
-    0x07,  // MCSM2               Main Radio Control State Machine Configuration
-    0x30,  // MCSM1               Main Radio Control State Machine Configuration
-    0x18,  // MCSM0               Main Radio Control State Machine Configuration
-    0x16,  // FOCCFG              Frequency Offset Compensation Configuration
-    0x6C,  // BSCFG               Bit Synchronization Configuration
-    0x03,  // AGCCTRL2            AGC Control
-    0x40,  // AGCCTRL1            AGC Control
-    0x91,  // AGCCTRL0            AGC Control
-    0x87,  // WOREVT1             High Byte Event0 Timeout
-    0x6B,  // WOREVT0             Low Byte Event0 Timeout
-    0xFB,  // WORCTRL             Wake On Radio Control
-    0x56,  // FREND1              Front End RX Configuration
-    0x10,  // FREND0              Front End TX Configuration
-    0xE9,  // FSCAL3              Frequency Synthesizer Calibration
-    0x2A,  // FSCAL2              Frequency Synthesizer Calibration
-    0x00,  // FSCAL1              Frequency Synthesizer Calibration
-    0x1F,  // FSCAL0              Frequency Synthesizer Calibration
-    0x41,  // RCCTRL1             RC Oscillator Configuration
-    0x00,  // RCCTRL0             RC Oscillator Configuration
-    0x59,  // FSTEST              Frequency Synthesizer Calibration Control
-    0x7F,  // PTEST               Production Test
-    0x3F,  // AGCTEST             AGC Test
-    0x81,  // TEST2               Various Test Settings
-    0x35,  // TEST1               Various Test Settings
-    0x09,  // TEST0               Various Test Settings
-    // 0x00,  // PARTNUM             Chip ID
-    // 0x14,  // VERSION             Chip ID
-    // 0x00,  // FREQEST             Frequency Offset Estimate from Demodulator
-    // 0x40,  // LQI                 Demodulator Estimate for Link Quality
-    // 0x80,  // RSSI                Received Signal Strength Indication
-    // 0x01,  // MARCSTATE           Main Radio Control State Machine State
-    // 0x00,  // WORTIME1            High Byte of WOR Time
-    // 0x00,  // WORTIME0            Low Byte of WOR Time
-    // 0x00,  // PKTSTATUS           Current GDOx Status and Packet Status
-    // 0x94,  // VCO_VC_DAC          Current Setting from PLL Calibration Module
-    // 0x00,  // TXBYTES             Underflow and Number of Bytes
-    // 0x00,  // RXBYTES             Overflow and Number of Bytes
-    // 0x00,  // RCCTRL1_STATUS      Last RC Oscillator Calibration Result
-    // 0x00,  // RCCTRL0_STATUS      Last RC Oscillator Calibration Result
-};
+static ccEnv_T cc1101Env;
 static void cc1101_GPIOInit( void )
 {
    hal_RFGPIO_Init();
@@ -138,15 +75,18 @@ static void cc1101_RegInit( void )
 {
     uint8 i=0,addr=0,status=0;
     uint8 syncWord[2]={ SYNC0,SYNC1 };
+    memset( cc1101Env,0,sizeof( cc1101Env) );
+    cc1101Log( INFO,"cc1101Env size =%d\n",sizeof(cc1101Env) );
 
     cc1101_WriteData( CC1101_REG_IOCFG1,IOCFG1 );
+    cc1101_WriteData( CC1101_REG_FIFOTHR,FIFOTHR );
     cc1101_WriteData( CC1101_REG_PKTLEN,PKTLEN );
     cc1101_WriteData( CC1101_REG_PKTCTRL1,PKTCTRL1 );
     cc1101_WriteData( CC1101_REG_PKTCTRL0,PKTCTRL0 );
     cc1101_WriteData( CC1101_REG_ADDR,ADDR );
     cc1101_WriteData( CC1101_REG_CHANNR,CHANNR );
-    cc1101_WriteData( CC1101_REG_IOCFG1,FSCTRL1 );
-    cc1101_WriteData( CC1101_REG_FSCTRL1,FSCTRL0 );
+    cc1101_WriteData( CC1101_REG_FSCTRL1,FSCTRL1 );
+    cc1101_WriteData( CC1101_REG_FSCTRL0,FSCTRL0 );
     cc1101_WriteData( CC1101_REG_FREQ2,FREQ2 );
     cc1101_WriteData( CC1101_REG_FREQ1,FREQ1 );
     cc1101_WriteData( CC1101_REG_FREQ0,FREQ0 );
@@ -181,10 +121,12 @@ static void cc1101_RegInit( void )
     cc1101_WriteData( CC1101_REG_TEST2,TEST2 );
     cc1101_WriteData( CC1101_REG_TEST1,TEST1 );
     cc1101_WriteData( CC1101_REG_TEST0,TEST0 );
+    cc1101_AddrFilter( 3 );
+    cc1101_AddrWrite( 0XAA );
     cc1101_GDOxCFG( 2,0x06 );
     cc1101_GDOxCFG( 0,0x06 );
     cc1101_SyncWordWrite( syncWord );
-    cc1101_AddrFilterEnable( 1 );
+    cc1101_PackLenMode( PKTCTRL0 );
     for( i=0;i<=0x2e;i++ )
     {
         status =  cc1101_ReadData(i);
@@ -229,8 +171,16 @@ uint8 cc1101_RSSI( uint8 flag )
     if( 0xFF==flag )
     {
         _rssiValue = cc1101_ReadData( CC1101_REG_RSSI );
+        if( _rssiValue>=128 )
+        {
+            cc1101Env.RSSI = (_rssiValue-256)/2 - 74;
+        }
+        else
+        {
+            cc1101Env.RSSI = (_rssiValue)/2 - 74;
+        }
     }
-    return _rssiValue;
+    return cc1101Env.RSSI;
 }
 
 
@@ -246,6 +196,7 @@ uint8 cc1101_LQI( uint8 flag )
     if( 0XFF==flag )
     {
         _lqiValue = cc1101_ReadData( CC1101_REG_LQI );
+        cc1101Env.LQI = _lqiValue;
     }
     return _lqiValue;
 }
@@ -294,6 +245,8 @@ int8 cc1101_SyncWordWrite( uint8 *pSyncWord )
     cc1101Log( INFO,"%s SyncWord:%02x %02x\n",__FUNCTION__, pSyncWord[0],pSyncWord[1] );
     cc1101_WriteData( CC1101_REG_SYNC0,pSyncWord[0] );
     cc1101_WriteData( CC1101_REG_SYNC1,pSyncWord[1] );
+    cc1101Env.syncWord[0] = pSyncWord[0];
+    cc1101Env.syncWord[1] = pSyncWord[1];
     return RET_SUCCESS;
 }
 
@@ -326,13 +279,13 @@ int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value )
     switch( GDOX_NUM )
     {
         case 0:
-            cc1101_WriteData( CC1101_REG_IOCFG2,value );
+            cc1101_WriteData( CC1101_REG_IOCFG0,value );
             break;
         case 1:
             cc1101_WriteData( CC1101_REG_IOCFG1,value );
             break;
         case 2:
-            cc1101_WriteData( CC1101_REG_IOCFG0,value );
+            cc1101_WriteData( CC1101_REG_IOCFG2,value );
             break;
         default :
             return RET_FAILED;
@@ -342,20 +295,25 @@ int8 cc1101_GDOxCFG( uint8 GDOX_NUM,uint8 value )
 }
 
 /******************************************************************
-Function    :   cc1101_AddrFilterEnable
-说明        :   cc1101 地址过滤使能/不使能
-flag        :   APP_DISABLE|APP_ENABLE
-value       :   要配置的值
+Function    :   cc1101_AddrFilter
+说明        :   cc1101 地址过滤设置
+flag        :   0x00:无地址检测 0x01: 地址检测，不接收广播
+                0x02:地址检测，且接收广播地址为0x00
+                0x03:地址检查，且接收广播地址为0x00 和0xFF
 return      :   RET_SUCCESS/RET_FAILED
 Add by AlexLin    --2017-04-02
 ******************************************************************/
-int8 cc1101_AddrFilterEnable( uint8 flag )
+int8 cc1101_AddrFilter( uint8 flag )
 {
     uint8 bit[2]=0,i=0;
     uint8 value=0;
-
+    if( !(0==flag || 0x01==flag || 0x02==flag || 0x03==flag) )
+    {
+        assert();
+        return RET_FAILED;
+    }
     value = cc1101_ReadData( CC1101_REG_PKTCTRL1 );
-    cc1101Log( INFO,"Before Write value :%d \n",value );
+    cc1101Log( INFO,"%s Before Write value :%d \n",__FUNCTION__, value );
     bit[0] = get_bit( flag,0 );
     bit[1] = get_bit( flag,1 );
     for ( i = 0; i < 2; i++ )
@@ -370,43 +328,123 @@ int8 cc1101_AddrFilterEnable( uint8 flag )
             reset_bit( value,i );
         }
     }
+    cc1101Env.addrFilterMode = flag;
+    cc1101_WriteData(  CC1101_REG_PKTCTRL1,value );
     cc1101Log( INFO,"bit0=%d bit1=%d \n",bit[0],bit[1] );
-    cc1101Log( INFO,"After Write value :%d \n",value );
-    return RET_FAILED;
+    cc1101Log( INFO,"%s After Write value :%d \n",__FUNCTION__,value );
+    return RET_SUCCESS;
 }
 
+
+/******************************************************************
+Function    :   cc1101_AddrWrite
+说明        :   cc1101 地址设置
+flag        :   APP_DISABLE|APP_ENABLE
+value       :   地址内容
+return      :   RET_SUCCESS/RET_FAILED
+Add by AlexLin    --2017-04-11
+******************************************************************/
 void cc1101_AddrWrite( uint8 addr )
 {
-
+    cc1101_WriteData( CC1101_REG_ADDR,addr );
+    cc1101Env.masterAddr = addr;
+    cc1101Log( INFO,"%s addr=0x%02x\n",__FUNCTION__,addr );
+    return ;
 }
 
-
-uint8 cc1101_AddrRead()
+/******************************************************************
+Function    :   cc1101_AddrRead
+说明        :   cc1101 读取
+return      :   cc1101 地址值
+Add by AlexLin    --2017-04-11
+******************************************************************/
+uint8 cc1101_AddrRead( void )
 {
-    return 0;
+    return cc1101_ReadData( CC1101_REG_ADDR );
+}
+
+/******************************************************************
+Function    :   cc1101_PackLenConfig
+说明        :   cc1101 数据包长度格式设置
+flag        :   0x00:固定数据包长度，由PKTLEN指定发送长度
+                0x01:可变长度数据包，通过同步词汇后的第一个位配置数据包长度
+                0x10:启用无限长度数据包
+return      :   rssi data
+Add by AlexLin    --2017-04-01
+******************************************************************/
+void cc1101_PackLenMode( uint8 flag )
+{
+    uint8 value = 0;
+    value  = get_bit(flag,1)*2+get_bit( flag,0 );
+    if( !(0x00==value || 0x01==value || 0x10==value)  )
+    {
+        assert();
+    }
+    else
+    {
+        cc1101Env.packLenMode = value;
+        cc1101Log( INFO,"%s value=%d \n",__FUNCTION__, value );
+    }
+
 }
 
 /******************************************************************
 Function    :   cc1101_Receive
 说明        :   cc1101 接收数据
-flag        :   0XFF,更新LQI.
+pData       :   存放数据的指针
+dataLen     :   pData,指针指向的缓存大小
 return      :   rssi data
 Add by AlexLin    --2017-04-01
 ******************************************************************/
-uint8 cc1101_Rece( uint8 *pData )
+int16 cc1101_Rece( uint8 *pData,uint8 dataLen )
 {
     static uint8 cc1101Time=0;
     uint8 len=0,i=0;
     uint8 rssi=0,lqi=0;
     int8 ack_flag=0;
-    cc1101Log( INFO,"Sync world \n");
-    cc1101Log( INFO,"wait the end of packet...\n");
+    uint8 payloadLen=0;
+    cc1101Log( DUMP,"Sync world and wait the end of packet...\n",);
+
     while( GDO_2_READ );
     len = cc1101_ReadData( CC1101_REG_RXBYTES );
-    cc1101Log( INFO,"%s receiveLen=%d\n",__FUNCTION__,len );
-
+    cc1101Log( DUMP,"%s dev data len=%d\n",__FUNCTION__,len );
+    if( len<=0 )
+    {
+        cc1101_ModeSet(IDLE_Mode);
+        cc1101_ModeSet( Rx_Mode );
+        return RET_FAILED;
+    }
     RF_CS_LOW;
     SPI2_SendByte(BURST_READ_FIFO);
+    if( dataLen < len )
+    {
+        for(i = 0;i < len;i ++)
+        {
+            SPI2_SendByte(0xff);
+        }
+        cc1101Log( ERROR,"%s dataLen=%d is less than the dev data len=%d\n",__FUNCTION__,dataLen,len );
+
+        RF_CS_HIGH;
+        cc1101_ModeSet(IDLE_Mode);
+        cc1101_ModeSet( Rx_Mode );
+        return RET_FAILED;
+    }
+    if( 0x01==cc1101Env.packLenMode )
+    {
+        payloadLen = SPI2_SendByte(0xff);
+        cc1101Log( INFO,"payload len :%02x\n",payloadLen );
+        len--;
+    }
+    if( 0x00!=cc1101Env.addrFilterMode )
+    {
+         cc1101Env.clientAddr = SPI2_SendByte(0xff);
+         cc1101Log( INFO,"clientAddr:%02x\n",cc1101Env.clientAddr );
+         len--;
+    }
+    if( get_bit(PKTCTRL1,2) )
+    {
+        len-=2;
+    }
     for(i = 0;i < len;i ++)
     {
 
@@ -414,17 +452,36 @@ uint8 cc1101_Rece( uint8 *pData )
 
         logDump( " %02X",pData[i] );
     }
-    cc1101Time++;
-    _rssiValue = pData[len-2];
-    _lqiValue = pData[len-1]&0x7F;
-    ack_flag =( (pData[len-1] &( 1<<7 )) >> 7 );
-    RF_CS_HIGH;
     logDump("\r\n");
+    if( get_bit(PKTCTRL1,2) )
+    {
+        uint8 lastDatap[2];
+        lastDatap[0] = SPI2_SendByte(0xff);
+        lastDatap[1] = SPI2_SendByte(0xff);
+        _rssiValue  = lastDatap[0];
+        cc1101Env.LQI = _lqiValue = (lastDatap[1]&0x7F);
+        if( _rssiValue>=128 )
+        {
+            cc1101Log( INFO,"%s %d rssi=%d\n",__FUNCTION__,__LINE__,_rssiValue );
+            cc1101Env.RSSI = (char)((_rssiValue-256)/2 - 74);
+        }
+        else
+        {
+
+            cc1101Env.RSSI= ((_rssiValue)/2 - 74);
+            cc1101Log( INFO,"%s %d rssi=%d %+d\n",__FUNCTION__,__LINE__,_rssiValue,cc1101Env.RSSI );
+        }
+
+        ack_flag = get_bit( lastDatap[1],7 );
+    }
+    cc1101Time++;
+    RF_CS_HIGH;
+
 
     cc1101_ModeSet(IDLE_Mode);
     cc1101_ModeSet( Rx_Mode );
 
-    cc1101Log( INFO,"rssi=%02x LQI=%02x ack=%d time=%d\n\n\n",_rssiValue,_lqiValue,ack_flag,cc1101Time );
+    cc1101Log( INFO,"rssi=%d dBm LQI=%02x ack=%d time=%d\n\n\n",cc1101Env.RSSI,_lqiValue,ack_flag,cc1101Time );
     return len;
 }
 

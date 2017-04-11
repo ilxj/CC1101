@@ -9,7 +9,7 @@
 #define INFO        0X03
 #define DUMP        0X04
 
-#define LOG_LEVEL   INFO
+#define LOG_LEVEL   DUMP
 
 #define devDump(format, args...) printf( format, ##args )
 

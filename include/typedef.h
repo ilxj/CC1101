@@ -4,11 +4,12 @@
 typedef unsigned char      uint8_t;
 typedef uint16_t           u16;
 typedef uint8_t            u8;
-typedef char               int8;
+typedef signed char        int8;
 typedef unsigned char      uint8;
 typedef unsigned int       uint32;
 typedef int                int32;
 typedef uint16_t           uint16;
+typedef int16_t            int16;
 
 #ifndef NULL
 #define NULL 0
